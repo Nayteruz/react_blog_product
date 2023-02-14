@@ -1,7 +1,7 @@
 @import "reset";
-@import "variables/global";
-@import "themes/normal";
-@import "themes/dark";
+@import "./variables/global";
+@import "./themes/normal";
+@import "./themes/dark";
 
 
 .app {
@@ -11,3 +11,14 @@
 
     min-height: 100vh;
 }
+
+.content-page {
+    display: flex;
+    width: 100%;
+
+    &--text-content {
+        flex:1 1 auto;
+        padding: 20px;
+    }
+}
+
