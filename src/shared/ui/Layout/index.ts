@@ -1,2 +1,1 @@
-export {Layout} from "shared/ui/Layout/ui/Layout";
-
+export { Layout } from 'shared/ui/Layout/ui/Layout';

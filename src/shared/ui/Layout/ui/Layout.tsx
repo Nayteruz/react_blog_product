@@ -1,14 +1,13 @@
-import {FC} from "react";
+import { FC } from 'react';
 
 interface LayoutProps {
     className?: string
 }
 
 export const Layout: FC<LayoutProps> = (props) => {
-
     const {
         className,
-        children
+        children,
     } = props;
 
     return (
