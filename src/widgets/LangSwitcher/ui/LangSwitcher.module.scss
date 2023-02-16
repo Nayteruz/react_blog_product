@@ -1,0 +1,22 @@
+.LangSwitcher {
+    display: flex;
+    gap:15px;
+}
+
+.lang_icon {
+    font-size: 0;
+    line-height: 0;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border:2px solid var(--border-icons);
+    img {
+        width: 140%;
+        height: 140%;
+        object-fit: cover;
+    }
+}

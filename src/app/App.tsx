@@ -5,17 +5,20 @@ import {AppRouter} from "app/providers/router";
 import {Navbar} from "widgets/Navbar";
 import {Sidebar} from "widgets/Sidebar";
 import {Layout} from "shared/ui/Layout";
+import {Suspense} from "react";
 
 const App = () => {
     const {theme} = useTheme();
 
     return (
         <div className={cn('app', {}, [theme])}>
-            <Navbar />
-            <Layout className="content-page">
-                <Sidebar/>
-                <AppRouter/>
-            </Layout>
+            <Suspense fallback="">
+                <Navbar/>
+                <Layout className="content-page">
+                    <Sidebar/>
+                    <AppRouter/>
+                </Layout>
+            </Suspense>
         </div>
     );
 };
