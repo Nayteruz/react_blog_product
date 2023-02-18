@@ -3,12 +3,10 @@
 @import "./themes/normal";
 @import "./themes/dark";
 
-
 .app {
     font: var(--font-m);
-    background:var(--bg-color);
+    background: var(--bg-color);
     color: var(--primary-color);
-
     min-height: 100vh;
 }
 
@@ -17,8 +15,7 @@
     width: 100%;
 
     &--text-content {
-        flex:1 1 auto;
+        flex: 1 1 auto;
         padding: 20px;
     }
 }
-
