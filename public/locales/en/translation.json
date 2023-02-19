@@ -1,4 +1,8 @@
 {
-  "Тестовый перевод": "Test translate",
-  "Перевод": "Translate"
+    "Тестовый перевод": "Test translate",
+    "Перевод": "Translate",
+    "Страница не найдена": "Page not found",
+    "Произошла непредвиденная ошибка": "Error something wrong",
+    "Обновить страницу": "Reload page",
+    "Вызвать ошибку" : "Throw error"
 }

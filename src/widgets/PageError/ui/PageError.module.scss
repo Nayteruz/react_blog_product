@@ -1,0 +1,26 @@
+.PageError {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    width: 100vw;
+    height: 100vh;
+}
+
+.errorButton {
+    background: #6c757d;
+    border: none;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font: var(--font-l);
+
+    &:hover {
+        background: darken(#6c757d, 5%);
+    }
+
+    &:active {
+        background: darken(#6c757d, 20%);
+    }
+}
