@@ -3,6 +3,8 @@
  * https://jestjs.io/docs/configuration
  */
 
+import path from 'path';
+
 export default {
     // All imported modules in your tests should be mocked automatically
     // automock: false,
@@ -35,6 +37,15 @@ export default {
         // Есть отличия МАК ОС и windows
         '<rootDir>src/**/*(*)@(spec|test).[tj]s?(x)',
     ],
+    modulePaths: [
+        '<rootDir>src',
+    ],
+    setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
+    moduleNameMapper: {
+        '\\.s?css$': '<rootDir>config/jest/__mocks__/styleMock.js',
+        '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
+            '<rootDir>config/jest/__mocks__/fileMock.js',
+    },
 
     // Indicates whether the coverage information should be collected while executing the test
     // collectCoverage: false,
