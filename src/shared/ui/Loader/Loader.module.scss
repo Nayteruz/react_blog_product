@@ -8,7 +8,7 @@ $loader-size: 30vh;
 
     div {
         position: absolute;
-        border: 10px solid var(--primary-color);
+        border: 25px solid var(--primary-color);
         opacity: 1;
         border-radius: 50%;
         animation: wave 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
@@ -39,6 +39,7 @@ $loader-size: 30vh;
     5% {
         top: calc($loader-size / 2);
         left: calc($loader-size / 2);
+        border-width: 3px;
         width: 0;
         height: 0;
         opacity: 1;

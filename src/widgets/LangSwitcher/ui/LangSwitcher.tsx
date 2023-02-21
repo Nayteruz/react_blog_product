@@ -9,10 +9,10 @@ interface LangSwitcherProps {
 }
 
 export const LangSwitcher = ({ className }: LangSwitcherProps) => {
-    const { t, i18n } = useTranslation();
+    const { i18n } = useTranslation();
 
     const toggleTranslate = (lang: string): void => {
-        i18n.changeLanguage(lang);
+        i18n.changeLanguage(lang).then(() => {});
     };
 
     return (

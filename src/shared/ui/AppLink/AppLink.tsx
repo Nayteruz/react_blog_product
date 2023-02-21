@@ -5,7 +5,8 @@ import cls from './AppLink.module.scss';
 
 export enum AppLinkTheme {
     PRIMARY = 'primary',
-    SECONDARY = 'secondary'
+    SECONDARY = 'secondary',
+    RED = 'red',
 }
 
 interface AppLinkProps extends LinkProps{
@@ -23,6 +24,7 @@ export const AppLink: FC<AppLinkProps> = (props) => {
     } = props;
 
     return (
+        /* eslint-disable react/jsx-props-no-spreading */
         <Link
             to={to}
             className={cn(cls.AppLink, {}, [className, cls[theme]])}
