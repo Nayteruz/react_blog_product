@@ -64,6 +64,7 @@ module.exports = {
             files: ['**/src/**/*.stories.{ts,tsx}'],
             rules: {
                 'i18next/no-literal-string': 'off',
+                'react/jsx-props-no-spreading': 'off',
             },
         },
     ],
