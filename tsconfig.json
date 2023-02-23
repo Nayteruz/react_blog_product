@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "outDir": "./dist/",
+        "outDir": "./build/",
         // Подсвечивает все места где не указан тип
         // Для того что бы везде явно писать тип, в том числе и any
         "noImplicitAny": true,

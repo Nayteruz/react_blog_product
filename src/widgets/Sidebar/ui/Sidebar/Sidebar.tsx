@@ -28,7 +28,6 @@ export const Sidebar = ({ className }: SidebarProps) => {
             >
                 <IconBar width={40} height={40} />
             </Button>
-
             <div className={cls.switchers}>
                 <ThemeSwitcher />
                 <LangSwitcher />
