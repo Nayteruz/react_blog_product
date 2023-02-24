@@ -3,3 +3,5 @@
 .idea
 /dist
 /storybook-static
+.loki/report.html
+.loki/report.json
