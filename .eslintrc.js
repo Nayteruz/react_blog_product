@@ -19,7 +19,7 @@ module.exports = {
         ecmaVersion: 'latest',
         sourceType: 'module',
     },
-    plugins: ['react', '@typescript-eslint', 'i18next'],
+    plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks'],
     rules: {
         indent: [2, 4],
         'react/jsx-indent-props': [2, 4],
@@ -42,6 +42,8 @@ module.exports = {
             markupOnly: true,
             ignoreAttribute: ['data-testid', 'to'],
         }],
+        'jsx-a11y/no-static-element-interactions': 'off',
+        'jsx-a11y/click-events-have-key-events': 'off',
         'max-len': [
             'error',
             {
@@ -49,22 +51,19 @@ module.exports = {
                 ignoreComments: true,
             },
         ],
+        'react-hooks/rules-of-hooks': 'error', // Проверяем правила хуков
+        'react-hooks/exhaustive-deps': 'error', // Проверяем зависимости эффекта
     },
     globals: {
         __IS_DEV__: true,
     },
     overrides: [
         {
-            files: ['**/src/**/*.test.{ts,tsx}'],
-            rules: {
-                'i18next/no-literal-string': 'off',
-            },
-        },
-        {
-            files: ['**/src/**/*.stories.{ts,tsx}'],
+            files: ['**/src/**/*.{test,stories}.{ts,tsx}'],
             rules: {
                 'i18next/no-literal-string': 'off',
                 'react/jsx-props-no-spreading': 'off',
+                'max-len': 'off',
             },
         },
     ],

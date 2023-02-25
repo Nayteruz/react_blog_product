@@ -4,6 +4,8 @@
         "indentation": [4],
         "selector-class-pattern": null,
         "no-missing-end-of-source-newline": null,
-        "scss/no-global-function-names" : null
+        "scss/no-global-function-names" : null,
+        "color-function-notation": "legacy",
+        "alpha-value-notation": "number"
     }
 }
