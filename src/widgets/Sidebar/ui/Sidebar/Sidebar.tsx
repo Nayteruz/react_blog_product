@@ -7,8 +7,8 @@ import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import IconMain from 'shared/assets/icons/main-20-20.svg';
 import IconAbout from 'shared/assets/icons/about-20-20.svg';
+import IconMain from 'shared/assets/icons/main-20-20.svg';
 import cls from './Sidebar.module.scss';
 
 interface SidebarProps {
