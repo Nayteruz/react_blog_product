@@ -8,6 +8,7 @@
     font: var(--font-m);
     padding: 4px;
     border-radius: 5px;
+    color: var(--primary-color);
 }
 
 .input {
@@ -22,7 +23,7 @@
     min-height: 40px;
 
     &::placeholder {
-        color: rgba(#000, 0.2);
+        color: rgba(#ccc, 0.6);
     }
 
     &:focus {
