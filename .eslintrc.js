@@ -40,10 +40,11 @@ module.exports = {
         '@typescript-eslint/no-unused-vars': ['warn'],
         'i18next/no-literal-string': ['error', {
             markupOnly: true,
-            ignoreAttribute: ['data-testid', 'to'],
+            ignoreAttribute: ['data-testid', 'to', 'placeholder'],
         }],
         'jsx-a11y/no-static-element-interactions': 'off',
         'jsx-a11y/click-events-have-key-events': 'off',
+        'jsx-a11y/label-has-associated-control': 'off',
         'max-len': [
             'error',
             {
