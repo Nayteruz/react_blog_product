@@ -34,8 +34,8 @@ export const Input = memo((props: InputProps) => {
     const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         onChange?.(e.target.value);
     };
-
     return (
+        /* eslint-disable react/jsx-props-no-spreading */
         <label className={cn(cls.InputWrapper, {}, [className])}>
             { placeholder && (
                 <div className={cls.placeholder}>
