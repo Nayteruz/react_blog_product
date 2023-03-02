@@ -40,6 +40,7 @@ export default {
         '\\.(jpg|jpeg|png)$': '<rootDir>config/jest/__mocks__/fileMock.js',
         '@/(.*)': '<rootDir>src/$1',
     },
+    transformIgnorePatterns: ['<rootDir>/node_modules/(?!(axios)/)'],
 
     // Indicates whether the coverage information should be collected while executing the test
     // collectCoverage: false,
