@@ -16,5 +16,14 @@
             "password": "123"
         }
     ],
-    "profile": { "name": "typicode" }
+    "profile": {
+        "first": "Alex",
+        "lastname": "Nayter",
+        "age": 35,
+        "currency": "RUB",
+        "country": "Russia",
+        "city": "Barnaul",
+        "username": "nayteruz",
+        "avatar": "https://fs05.gcfiles.net/fileservice/file/thumbnail/h/AB.d79faf81e6705c94cf898f9fc1f55c42.png/s/70x70/a/550990/sc/131"
+    }
 }
