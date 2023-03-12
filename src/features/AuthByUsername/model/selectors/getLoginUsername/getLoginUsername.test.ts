@@ -1,5 +1,4 @@
 import { StateSchema } from 'app/providers/StoryProvider';
-import { DeepPartial } from '@reduxjs/toolkit';
 import { getLoginUsername } from './getLoginUsername';
 
 describe('getLoginUsername', () => {

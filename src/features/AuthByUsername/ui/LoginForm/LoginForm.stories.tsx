@@ -17,18 +17,19 @@ export default {
 const Template: ComponentStory<typeof LoginForm> = (args) => <LoginForm {...args} />;
 
 export const Primary = Template.bind({});
-Primary.args = {
-    placeholder: 'Type text',
-    value: '1234',
-};
+Primary.args = {};
 Primary.decorators = [StoryDecorator({
-    loginForm: { username: 'login name', password: 'password123' },
+    loginForm: {
+        username: 'login name', password: 'password123',
+    },
 })];
 
 export const WithError = Template.bind({});
 WithError.args = {};
 WithError.decorators = [StoryDecorator({
-    loginForm: { username: 'login name', password: 'password123', error: 'error example' },
+    loginForm: {
+        username: 'login name', password: 'password123', error: 'error example',
+    },
 })];
 
 export const Loading = Template.bind({});

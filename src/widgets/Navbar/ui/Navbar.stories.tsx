@@ -20,7 +20,7 @@ Light.decorators = [StoryDecorator({})];
 
 export const AuthNavbar = Template.bind({});
 AuthNavbar.args = {};
-AuthNavbar.decorators = [StoryDecorator({ user: { authData: {} } })];
+AuthNavbar.decorators = [StoryDecorator({ user: { authData: { id: '2', username: 'Test' } } })];
 
 export const Dark = Template.bind({});
 Dark.args = {};

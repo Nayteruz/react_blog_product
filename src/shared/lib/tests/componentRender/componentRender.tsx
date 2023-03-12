@@ -4,7 +4,6 @@ import i18nForTests from 'shared/config/i18n/i18nForTests';
 import { render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { StateSchema, StoryProvider } from 'app/providers/StoryProvider';
-import { DeepPartial } from '@reduxjs/toolkit';
 
 export interface componentRenderOptions {
     route?: string;
@@ -18,12 +17,12 @@ export function componentRender(component: ReactNode, options: componentRenderOp
     } = options;
 
     return render(
-        <StoryProvider initialState={initialState}>
-            <MemoryRouter initialEntries={[route]}>
+        <MemoryRouter initialEntries={[route]}>
+            <StoryProvider initialState={initialState}>
                 <I18nextProvider i18n={i18nForTests}>
                     {component}
                 </I18nextProvider>
-            </MemoryRouter>
-        </StoryProvider>,
+            </StoryProvider>
+        </MemoryRouter>,
     );
 }

@@ -6,7 +6,7 @@ import cls from './LangSwitcher.module.scss';
 import { langConfig } from './langConfig';
 
 interface LangSwitcherProps {
-    className?: string
+    className?: string;
     center?: boolean;
 }
 

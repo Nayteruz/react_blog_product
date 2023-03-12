@@ -9,6 +9,8 @@
         "target": "es5",
         // Для поддержки синтаксиса JSX в файлах реакта например
         "jsx": "react-jsx",
+        // Строгий режим
+        "strict": true,
         // Позволяет обрабатывать не только TS файлы, но и JS файлы
         "allowJs": true,
         "moduleResolution": "node",
