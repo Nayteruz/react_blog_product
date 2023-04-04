@@ -1,29 +1,53 @@
 {
-    "posts": [
-        { "id": "1", "title": "json-server", "author": "typicode" },
-        { "id": "2", "title": "json-server 2", "author": "typicode" },
-        { "id": "3", "title": "json-server 3", "author": "typicode" },
-        { "id": "4", "title": "json-server 4", "author": "typicode" },
-        { "id": "5", "title": "json-server 5", "author": "typicode" }
-    ],
-    "comments": [
-        { "id": "1", "body": "some comment", "postId": "1" }
-    ],
-    "users": [
-        {
-            "id": "1",
-            "username": "admin",
-            "password": "123"
-        }
-    ],
-    "profile": {
-        "first": "Alex",
-        "lastname": "Nayter",
-        "age": 35,
-        "currency": "RUB",
-        "country": "Russia",
-        "city": "Barnaul",
-        "username": "nayteruz",
-        "avatar": "https://fs05.gcfiles.net/fileservice/file/thumbnail/h/AB.d79faf81e6705c94cf898f9fc1f55c42.png/s/70x70/a/550990/sc/131"
+  "posts": [
+    {
+      "id": "1",
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": "2",
+      "title": "json-server 2",
+      "author": "typicode"
+    },
+    {
+      "id": "3",
+      "title": "json-server 3",
+      "author": "typicode"
+    },
+    {
+      "id": "4",
+      "title": "json-server 4",
+      "author": "typicode"
+    },
+    {
+      "id": "5",
+      "title": "json-server 5",
+      "author": "typicode"
     }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "body": "some comment",
+      "postId": "1"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "123"
+    }
+  ],
+  "profile": {
+    "first": "Alex11",
+    "lastname": "Nayter11",
+    "age": 3511,
+    "currency": "RUB",
+    "country": "Узбекистан",
+    "city": "Barnaul11",
+    "username": "nayteruz111",
+    "avatar": "https://img.freepik.com/free-vector/colored-hacker-code-realistic-composition-with-person-creates-codes-hacking-stealing-information-vector-illustration_1284-18005.jpg?w=2000"
+  }
 }

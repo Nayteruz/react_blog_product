@@ -3,6 +3,8 @@ import { classNames as cn } from 'shared/lib/classNames/classNames';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { useLocation } from 'react-router-dom';
 import { memo } from 'react';
+import { useSelector } from 'react-redux';
+import { getUserAuthData } from 'entities/User';
 import cls from './SidebarItem.module.scss';
 import { SidebarItemType } from '../../model/items';
 
@@ -14,6 +16,12 @@ interface SidebarItemProps {
 export const SidebarItem = memo(({ item, collapsed }: SidebarItemProps) => {
     const { t } = useTranslation();
     const location = useLocation();
+    const isAuth = useSelector(getUserAuthData);
+
+    if (item.authOnly && !isAuth) {
+        return null;
+    }
+
     return (
         <li className={cls.item}>
             <AppLink

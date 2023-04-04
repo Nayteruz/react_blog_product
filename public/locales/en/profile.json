@@ -2,5 +2,16 @@
     "Профиль": "Profile",
     "Редактировать": "Edit",
     "Ваше имя": "Your name",
-    "Ваша фамилия": "Your lastname"
+    "Ваша фамилия": "Your lastname",
+    "Произошла ошибка при загрузке профиля": "An error occurred while loading the profile",
+    "Попробуйте обновить страницу": "Try refreshing the page",
+    "Отменить": "Cancel",
+    "Сохранить": "Save",
+    "Ваш возраст": "Your age",
+    "Город": "City",
+    "Введите имя пользователя": "Enter user name",
+    "Введите ссылку на аватар": "Enter avatar link",
+    "Укажите валюту": "Select currency",
+    "Укажите город": "Select city",
+    "Укажите страну": "Select country"
 }
