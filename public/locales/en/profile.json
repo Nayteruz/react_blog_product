@@ -13,5 +13,11 @@
     "Введите ссылку на аватар": "Enter avatar link",
     "Укажите валюту": "Select currency",
     "Укажите город": "Select city",
-    "Укажите страну": "Select country"
+    "Укажите страну": "Select country",
+    "Некорректные пользовательские данные": "Incorrect user data",
+    "Некорректные данные возраста": "Incorrect age data",
+    "Некорректные данные страны": "Incorrect country data",
+    "Данные отсутствуют": "No data",
+    "Серверная ошибка": "Server error",
+    "Некорректные данные авторизации": "Incorrect auth data"
 }
