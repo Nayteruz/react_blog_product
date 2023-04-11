@@ -6,10 +6,11 @@ import { buildBabelLoaders } from './loaders/buildBabelLoaders';
 import { buildFileLoaders } from './loaders/buildFileLoaders';
 import { buildTypescriptLoaders } from './loaders/buildTypescriptLoaders';
 
-export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
+export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
+    const { isDev } = options;
     const svgLoader = buildSvgLoaders();
 
-    const babelLoader = buildBabelLoaders();
+    const babelLoader = buildBabelLoaders(options);
 
     const fileLoader = buildFileLoaders();
 
