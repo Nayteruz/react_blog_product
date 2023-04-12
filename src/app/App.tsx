@@ -5,10 +5,12 @@ import { Sidebar } from 'widgets/Sidebar';
 import { Layout } from 'shared/ui/Layout';
 import { Suspense, useEffect } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { userActions } from 'entities/User';
+import { getUserMounted, userActions } from 'entities/User';
+import { useSelector } from 'react-redux';
 
 function App() {
     const dispatch = useAppDispatch();
+    const userMounted = useSelector(getUserMounted);
 
     useEffect(() => {
         dispatch(userActions.initAuthData());
@@ -20,7 +22,7 @@ function App() {
                 <Navbar />
                 <Layout className="content-page">
                     <Sidebar />
-                    <AppRouter />
+                    {userMounted && <AppRouter />}
                 </Layout>
             </Suspense>
         </div>
