@@ -1,11 +1,18 @@
 .app_purple_theme {
     --bg-color: #afa8ba;
     --inverted-bg-color: #63537f;
-    --primary-color: #834c41;
+    --primary-color: #4c241c;
     --primary-placeholder-color: rgba(#834c41, 0.5);
-    --secondary-color: #bb7d71;
-    --secondary-placeholder-color: rgba(#bb7d71, 0.5);
+    --secondary-color: #6e4139;
+    --secondary-placeholder-color: rgba(#6e4139, 0.5);
     --inverted-primary-color: #bb7d71;
     --inverted-secondary-color: #834c41;
     --theme-icon-color: #412e5d;
+
+    // skeleton
+    --skeleton-color: rgba(132, 114, 162, 0.46);
+    --skeleton-shadow: #877c96;
+
+    // code
+    --code-bg: rgba(255, 255, 255, 0.2);
 }
