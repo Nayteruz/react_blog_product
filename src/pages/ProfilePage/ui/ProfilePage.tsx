@@ -12,12 +12,14 @@ import {
     profileReducer, ValidateProfileError,
 } from 'entities/Profile';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useCallback, useEffect } from 'react';
+import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country/model/types/country';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { useParams } from 'react-router-dom';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: ReducerList = {
@@ -36,6 +38,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     const error = useSelector(getProfileError);
     const readonly = useSelector(getProfileReadonly);
     const validateErrors = useSelector(getProfileValidateErrors);
+    const { id } = useParams<{id:string}>();
 
     const validateErrorTranslates = {
         [ValidateProfileError.INCORRECT_USER_DATA]: t('Некорректные пользовательские данные'),
@@ -46,46 +49,62 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
         [ValidateProfileError.INCORRECT_USER_AUTH]: t('Некорректные данные авторизации'),
     };
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchProfileData());
+    useInitialEffect(() => {
+        if (id) {
+            dispatch(fetchProfileData(id));
         }
-    }, [dispatch]);
+    });
 
     const onChangeFirstName = useCallback((value?: string) => {
-        dispatch(profileActions.updateProfile({ first: value || '' }));
-    }, [dispatch]);
+        if (id) {
+            dispatch(profileActions.updateProfile({ id, first: value || '' }));
+        }
+    }, [dispatch, id]);
 
     const onChangeLastName = useCallback((value?: string) => {
-        dispatch(profileActions.updateProfile({ lastname: value || '' }));
-    }, [dispatch]);
+        if (id) {
+            dispatch(profileActions.updateProfile({ id, lastname: value || '' }));
+        }
+    }, [dispatch, id]);
 
     const onChangeAge = useCallback((value?: string) => {
-        dispatch(profileActions.updateProfile({ age: Number(value || 0) }));
-    }, [dispatch]);
+        if (id) {
+            dispatch(profileActions.updateProfile({ id, age: Number(value || 0) }));
+        }
+    }, [dispatch, id]);
 
     const onChangeCity = useCallback((value?: string) => {
-        dispatch(profileActions.updateProfile({ city: value || '' }));
-    }, [dispatch]);
+        if (id) {
+            dispatch(profileActions.updateProfile({ id, city: value || '' }));
+        }
+    }, [dispatch, id]);
 
     const onChangeUsername = useCallback((value?: string) => {
-        dispatch(profileActions.updateProfile({ username: value || '' }));
-    }, [dispatch]);
+        if (id) {
+            dispatch(profileActions.updateProfile({ id, username: value || '' }));
+        }
+    }, [dispatch, id]);
 
     const onChangeAvatar = useCallback((value?: string) => {
-        dispatch(profileActions.updateProfile({ avatar: value || '' }));
-    }, [dispatch]);
+        if (id) {
+            dispatch(profileActions.updateProfile({ id, avatar: value || '' }));
+        }
+    }, [dispatch, id]);
 
     const onChangeCurrency = useCallback((currency?: Currency) => {
-        dispatch(profileActions.updateProfile({ currency }));
-    }, [dispatch]);
+        if (id) {
+            dispatch(profileActions.updateProfile({ id, currency }));
+        }
+    }, [dispatch, id]);
 
     const onChangeCountry = useCallback((country?: Country) => {
-        dispatch(profileActions.updateProfile({ country }));
-    }, [dispatch]);
+        if (id) {
+            dispatch(profileActions.updateProfile({ id, country }));
+        }
+    }, [dispatch, id]);
 
     return (
-        <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+        <DynamicModuleLoader reducers={reducers}>
             <div className={cn('', {}, [className])}>
                 <ProfilePageHeader />
                 {validateErrors?.length && validateErrors.map((err) => (

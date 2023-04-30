@@ -34,7 +34,9 @@
       "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_tYaggzZtrVKys9HdormuKkMqVJq-MEAmAurUaMaeC-rVeFQ6b5Q2m6S1liToWzmADjY&usqp=CAU",
       "views": 1000,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -118,6 +120,30 @@
       "postId": "1",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": 1,
+      "userId": "1",
+      "text": "test comment",
+      "id": "cf_U61v"
+    },
+    {
+      "articleId": 1,
+      "userId": "2",
+      "text": "test comment user",
+      "id": "Pm-KByS"
+    },
+    {
+      "articleId": 1,
+      "userId": "2",
+      "text": "привет мир",
+      "id": "wolmgpO"
+    },
+    {
+      "articleId": 1,
+      "userId": "2",
+      "text": "еуые еуе",
+      "id": "obm3EzS"
     }
   ],
   "users": [
@@ -136,14 +162,28 @@
       "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcSYfUoqdk0b4EXYbz1u00tRldGO-BHA_LOWMv6Qno&s"
     }
   ],
-  "profile": {
-    "first": "Alex",
-    "lastname": "Nayter",
-    "age": 35,
-    "currency": "RUB",
-    "country": "Узбекистан",
-    "city": "Barnaul",
-    "username": "nayteruz",
-    "avatar": "https://img.freepik.com/free-vector/colored-hacker-code-realistic-composition-with-person-creates-codes-hacking-stealing-information-vector-illustration_1284-18005.jpg?w=2000"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "Alex",
+      "lastname": "Nayter",
+      "age": 35,
+      "currency": "RUB",
+      "country": "Узбекистан",
+      "city": "Barnaul",
+      "username": "nayteruz",
+      "avatar": "https://img.freepik.com/free-photo/side-view-male-hacker-with-gloves-laptop_23-2148578161.jpg"
+    },
+    {
+      "id": "2",
+      "first": "Alex4",
+      "lastname": "Nayter2",
+      "age": 28,
+      "currency": "RUB",
+      "country": "Россия",
+      "city": "Краснодар",
+      "username": "nayteruz2",
+      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcSYfUoqdk0b4EXYbz1u00tRldGO-BHA_LOWMv6Qno&s"
+    }
+  ]
 }

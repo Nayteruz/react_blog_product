@@ -11,6 +11,7 @@ interface InputProps extends HTMLInputProps {
     value?: string | number;
     onChange?: (value: string) => void;
     readonly?: boolean;
+    placeholderTopName?: boolean;
 }
 
 export const Input = memo((props: InputProps) => {
@@ -20,6 +21,7 @@ export const Input = memo((props: InputProps) => {
         onChange,
         type = 'text',
         placeholder,
+        placeholderTopName = true,
         autoFocus,
         readonly,
         ...otherProps
@@ -44,7 +46,7 @@ export const Input = memo((props: InputProps) => {
     return (
         /* eslint-disable react/jsx-props-no-spreading */
         <label className={cn(cls.InputWrapper, mods, [className])}>
-            { placeholder && (
+            { placeholder && placeholderTopName && (
                 <div className={cls.placeholder}>
                     {`${placeholder}:`}
                 </div>

@@ -9,5 +9,11 @@
 .header {
     display: flex;
     align-items: center;
-    gap:15px;
+    gap: 15px;
+    text-decoration: none;
+}
+
+.loading {
+    border: none;
+    margin-top: 10px;
 }

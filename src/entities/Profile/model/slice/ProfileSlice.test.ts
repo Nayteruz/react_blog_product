@@ -5,6 +5,7 @@ import { profileActions, profileReducer } from './ProfileSlice';
 import { ProfileSchema } from '../types/profile';
 
 const data = {
+    id: '1',
     username: 'admin',
     age: 35,
     country: Country.Uzbekistan,
@@ -47,6 +48,7 @@ describe('profileSlice', () => {
                 state as ProfileSchema,
                 profileActions.updateProfile({
                     username: '1234',
+                    id: '1',
                 }),
             ),
         ).toStrictEqual({
