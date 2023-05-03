@@ -23,7 +23,7 @@
     min-height: 40px;
 
     &::placeholder {
-        color: rgba(#ccc, 0.6);
+        color: var(--primary-placeholder-color);
     }
 
     &:focus {

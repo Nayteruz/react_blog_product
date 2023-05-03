@@ -1,52 +1,58 @@
 import { useTranslation } from 'react-i18next';
 import { classNames as cn } from 'shared/lib/classNames/classNames';
-import { memo } from 'react';
-import { Article, ArticleList, ArticleView } from 'entities/Article';
+import { memo, useCallback } from 'react';
+import { ArticleList, ArticleView, ArticleViewSelector } from 'entities/Article';
+import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { useSelector } from 'react-redux';
+import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
+import {
+    getArticlesPageError,
+    getArticlesPageIsLoading,
+    getArticlesPagePageView,
+} from '../../model/selectors/articlesPageSelectors';
+import { articlesPageActions, articlesPageReducer, getArticles } from '../../model/slices/articlePageSlice';
 import cls from './ArticlesPage.module.scss';
 
 interface ArticlesPageProps {
     className?: string
 }
 
-const articles = [
-    {
-        id: '1',
-        title: 'Javascript news text title for example',
-        subtitle: 'Что нового в JS за 2022 год?',
-        // eslint-disable-next-line max-len
-        img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_tYaggzZtrVKys9HdormuKkMqVJq-MEAmAurUaMaeC-rVeFQ6b5Q2m6S1liToWzmADjY&usqp=CAU',
-        views: 1000,
-        createdAt: '26.02.2022',
-        // eslint-disable-next-line max-len
-        user: { id: '1', username: 'User test', avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_tYaggzZtrVKys9HdormuKkMqVJq-MEAmAurUaMaeC-rVeFQ6b5Q2m6S1liToWzmADjY&usqp=CAU' },
-        type: [
-            'IT',
-            'SCIENCE',
-            'POLITICS',
-            'ECONOMICS',
-        ],
-    },
-];
+const reducers: ReducerList = {
+    articlesPage: articlesPageReducer,
+};
 
-const ArticlesPage = ({ className }: ArticlesPageProps) => {
+const ArticlesPage = (props: ArticlesPageProps) => {
+    const { className } = props;
     const { t } = useTranslation('article');
-    const article = articles[0];
+    const dispatch = useAppDispatch();
+    const articles = useSelector(getArticles.selectAll);
+    const isLoading = useSelector(getArticlesPageIsLoading);
+    const error = useSelector(getArticlesPageError);
+    const view = useSelector(getArticlesPagePageView);
+
+    const onChangeView = useCallback((view: ArticleView) => {
+        dispatch(articlesPageActions.setView(view));
+    }, [dispatch]);
+
+    useInitialEffect(() => {
+        dispatch(fetchArticlesList());
+        dispatch(articlesPageActions.initState());
+    });
+
     return (
-        <div className={cn(cls.ArticlesPage, {}, [className])}>
-            <ArticleList
-                isLoading
-                view={ArticleView.LIST}
-                articles={
-                (new Array(16)
-                    .fill(0)
-                    .map((item, index) => ({
-                        ...article,
-                        id: index.toString(),
-                    }))
-                ) as Article[]
-                }
-            />
-        </div>
+        <DynamicModuleLoader reducers={reducers}>
+            <div className={cn(cls.ArticlesPage, {}, [className])}>
+                <ArticleViewSelector view={view} onViewClick={onChangeView} />
+                <ArticleList
+                    isLoading={isLoading}
+                    view={view}
+                    articles={articles}
+                />
+            </div>
+        </DynamicModuleLoader>
+
     );
 };
 

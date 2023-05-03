@@ -1,0 +1,12 @@
+.buttons {
+    font-size: 0;
+    line-height: 0;
+
+    &.active {
+        box-shadow: inset 0 0 3px var(--secondary-color);
+
+        svg {
+            fill: var(--secondary-color);
+        }
+    }
+}
