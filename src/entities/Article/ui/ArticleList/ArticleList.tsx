@@ -1,13 +1,14 @@
+import { classNames } from 'shared/lib/classNames/classNames';
+import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
-import { classNames as cn } from 'shared/lib/classNames/classNames';
 import { ArticleListItemSkeleton } from 'entities/Article/ui/ArticleListItem/ArticleListItemSkeleton';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
-import { Article, ArticleView } from '../../model/types/article';
 import cls from './ArticleList.module.scss';
+import { Article, ArticleView } from '../../model/types/article';
 
 interface ArticleListProps {
     className?: string;
-    articles?: Article[];
+    articles: Article[]
     isLoading?: boolean;
     view?: ArticleView;
 }
@@ -22,32 +23,26 @@ export const ArticleList = memo((props: ArticleListProps) => {
     const {
         className,
         articles,
-        isLoading,
         view = ArticleView.SIMPLE,
+        isLoading,
     } = props;
-
-    if (isLoading) {
-        return (
-            <div className={cn(cls.ArticleList, {}, [className, cls[view]])}>
-                {getSkeletons(view)}
-            </div>
-        );
-    }
+    const { t } = useTranslation();
 
     const renderArticle = (article: Article) => (
         <ArticleListItem
-            key={article.id}
             article={article}
             view={view}
             className={cls.card}
+            key={article.id}
         />
     );
 
     return (
-        <div className={cn(cls.ArticleList, {}, [className, cls[view]])}>
-            {articles && articles?.length > 0
-                ? articles?.map(renderArticle)
+        <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+            {articles.length > 0
+                ? articles.map(renderArticle)
                 : null}
+            {isLoading && getSkeletons(view)}
         </div>
     );
 });

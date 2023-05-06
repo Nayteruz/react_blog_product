@@ -1,11 +1,13 @@
 import { useTranslation } from 'react-i18next';
+import { Page } from 'shared/ui/Page/Page';
 
 const AboutPage = () => {
     const { t } = useTranslation('about');
-    const createMarkup = () => ({ __html: t('О сайте') });
 
     return (
-        <div dangerouslySetInnerHTML={createMarkup()} />
+        <Page>
+            {t('О сайте')}
+        </Page>
     );
 };
 

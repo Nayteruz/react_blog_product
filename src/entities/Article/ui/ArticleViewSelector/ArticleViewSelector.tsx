@@ -17,10 +17,12 @@ const viewTypes = [
     {
         view: ArticleView.SIMPLE,
         icon: TileIcon,
+        limit: 9,
     },
     {
         view: ArticleView.LIST,
         icon: ListIcon,
+        limit: 4,
     },
 ];
 
