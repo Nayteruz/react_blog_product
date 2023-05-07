@@ -1,5 +1,4 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { ArticleListItemSkeleton } from 'entities/Article/ui/ArticleListItem/ArticleListItemSkeleton';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
@@ -11,6 +10,7 @@ interface ArticleListProps {
     articles: Article[]
     isLoading?: boolean;
     view?: ArticleView;
+    hasMore?: boolean;
 }
 
 const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.SIMPLE ? 9 : 3)
@@ -25,8 +25,8 @@ export const ArticleList = memo((props: ArticleListProps) => {
         articles,
         view = ArticleView.SIMPLE,
         isLoading,
+        hasMore,
     } = props;
-    const { t } = useTranslation();
 
     const renderArticle = (article: Article) => (
         <ArticleListItem
@@ -37,12 +37,16 @@ export const ArticleList = memo((props: ArticleListProps) => {
         />
     );
 
+    if (!hasMore) {
+        return null;
+    }
+
     return (
         <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
             {articles.length > 0
                 ? articles.map(renderArticle)
                 : null}
-            {isLoading && getSkeletons(view)}
+            {isLoading && hasMore && getSkeletons(view)}
         </div>
     );
 });

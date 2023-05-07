@@ -6,11 +6,12 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useSelector } from 'react-redux';
 import { Page } from 'shared/ui/Page/Page';
+import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlePage/fetchNextArticlesPage';
-import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import {
     getArticlesPageError,
     getArticlesPageIsLoading,
+    getArticlesPagePageHasMore,
     getArticlesPagePageView,
 } from '../../model/selectors/articlesPageSelectors';
 import { articlesPageActions, articlesPageReducer, getArticles } from '../../model/slices/articlePageSlice';
@@ -31,6 +32,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     const isLoading = useSelector(getArticlesPageIsLoading);
     const error = useSelector(getArticlesPageError);
     const view = useSelector(getArticlesPagePageView);
+    const hasMore = useSelector(getArticlesPagePageHasMore);
 
     const onChangeView = useCallback((view: ArticleView) => {
         // const count = ArticleView.SIMPLE === view ? 9 : 4;
@@ -41,25 +43,19 @@ const ArticlesPage = (props: ArticlesPageProps) => {
         // }));
     }, [dispatch]);
 
-    const onLoadNextPart = useCallback(() => {
-        dispatch(fetchNextArticlesPage());
-    }, [dispatch]);
+    const onLoadNextPart = useCallback(() => dispatch(fetchNextArticlesPage()), [dispatch]);
 
-    useInitialEffect(() => {
-        dispatch(articlesPageActions.initState());
-        dispatch(fetchArticlesList({
-            page: 1,
-        }));
-    });
+    useInitialEffect(() => dispatch(initArticlesPage()));
 
     return (
-        <DynamicModuleLoader reducers={reducers}>
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
             <Page
                 onScrollEnd={onLoadNextPart}
                 className={cn(cls.ArticlesPage, {}, [className])}
             >
                 <ArticleViewSelector view={view} onViewClick={onChangeView} />
                 <ArticleList
+                    hasMore={hasMore}
                     isLoading={isLoading}
                     view={view}
                     articles={articles}

@@ -24,6 +24,7 @@ const articlesPageSLice = createSlice({
         page: 1,
         limit: 9,
         hasMore: true,
+        _inited: false,
     }),
     reducers: {
         setView: (state, action: PayloadAction<ArticleView>) => {
@@ -40,6 +41,7 @@ const articlesPageSLice = createSlice({
             const view = localStorage.getItem(ARTICLES_VIEW_STORAGE_KEY) as ArticleView;
             state.view = view;
             state.limit = view === ArticleView.SIMPLE ? 9 : 4;
+            state._inited = true;
         },
     },
     extraReducers: (builder) => {
@@ -56,7 +58,6 @@ const articlesPageSLice = createSlice({
                 ) => {
                     state.isLoading = false;
                     articlesAdapter.addMany(state, action.payload);
-                    console.log(Boolean(action.payload.length));
                     state.hasMore = action.payload.length > 0;
                 },
             )
