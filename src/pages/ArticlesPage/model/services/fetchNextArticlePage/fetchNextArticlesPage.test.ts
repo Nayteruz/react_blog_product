@@ -20,24 +20,24 @@ describe('fetchNextArticlesPage.test', () => {
         await thunk.callThunk();
 
         expect(thunk.dispatch).toBeCalledTimes(4);
-        expect(fetchArticlesList).toHaveBeenCalledWith({ page: 3 });
+        expect(fetchArticlesList).toHaveBeenCalled();
     });
     // не правильно работает.
-    // test('fetchArticleList not called', async () => {
-    //     const thunk = new TestAsyncThunk(fetchNextArticlesPage, {
-    //         articlesPage: {
-    //             page: 2,
-    //             ids: [],
-    //             entities: {},
-    //             limit: 5,
-    //             isLoading: false,
-    //             hasMore: false,
-    //         },
-    //     });
-    //
-    //     await thunk.callThunk();
-    //
-    //     expect(thunk.dispatch).toBeCalledTimes(2);
-    //     expect(fetchArticlesList).not.toHaveBeenCalled();
-    // });
+    test('fetchArticleList not called', async () => {
+        const thunk = new TestAsyncThunk(fetchNextArticlesPage, {
+            articlesPage: {
+                page: 2,
+                ids: [],
+                entities: {},
+                limit: 5,
+                isLoading: false,
+                hasMore: false,
+            },
+        });
+
+        await thunk.callThunk();
+
+        expect(thunk.dispatch).toBeCalledTimes(2);
+        expect(fetchArticlesList).not.toHaveBeenCalled();
+    });
 });

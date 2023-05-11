@@ -101,6 +101,7 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
                     <Avatar
                         size={200}
                         src={article?.img || ''}
+                        resize="cover"
                         className={cls.avatar}
                     />
                 </div>

@@ -34,7 +34,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     const types = <Text text={article.type.join(', ')} className={cls.types} />;
     const views = (
         <>
-            <Text text={String(article.views)} className={cls.views} />
+            <Text text={String(article.views) + article.id} className={cls.views} />
             <Icon Svg={EyeIcon} className={cls.views_icon} />
         </>
     );

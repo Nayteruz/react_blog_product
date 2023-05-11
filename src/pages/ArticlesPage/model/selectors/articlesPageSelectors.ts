@@ -1,10 +1,14 @@
 import { StateSchema } from 'app/providers/StoryProvider';
-import { ArticleView } from 'entities/Article';
+import { ArticleSortFiled, ArticleType, ArticleView } from 'entities/Article';
 
 export const getArticlesPageIsLoading = (state: StateSchema) => state.articlesPage?.isLoading || false;
 export const getArticlesPageError = (state: StateSchema) => state.articlesPage?.error;
-export const getArticlesPagePageView = (state: StateSchema) => state.articlesPage?.view || ArticleView.SIMPLE;
-export const getArticlesPagePageNum = (state: StateSchema) => state.articlesPage?.page || 1;
-export const getArticlesPagePageLimit = (state: StateSchema) => state.articlesPage?.limit || 9;
-export const getArticlesPagePageHasMore = (state: StateSchema) => state.articlesPage?.hasMore || true;
+export const getArticlesPageView = (state: StateSchema) => state.articlesPage?.view || ArticleView.SIMPLE;
+export const getArticlesPageNum = (state: StateSchema) => state.articlesPage?.page || 1;
+export const getArticlesPageLimit = (state: StateSchema) => state.articlesPage?.limit || 9;
+export const getArticlesPageHasMore = (state: StateSchema) => state.articlesPage?.hasMore;
 export const getArticlesPageInited = (state: StateSchema) => state.articlesPage?._inited;
+export const getArticlesPageOrder = (state: StateSchema) => state.articlesPage?.order ?? 'asc';
+export const getArticlesPageSort = (state: StateSchema) => state.articlesPage?.sort ?? ArticleSortFiled.CREATED;
+export const getArticlesPageSearch = (state: StateSchema) => state.articlesPage?.search ?? '';
+export const getArticlesPageType = (state: StateSchema) => state.articlesPage?.type ?? ArticleType.ALL;

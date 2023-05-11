@@ -1,6 +1,6 @@
 .SIMPLE {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, calc(33% - 20px));
     gap: 30px;
 }
 
@@ -8,4 +8,8 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 20px;
+}
+
+.notFound {
+    grid-template-columns: 1fr;
 }

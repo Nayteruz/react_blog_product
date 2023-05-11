@@ -7,17 +7,19 @@ interface AvatarProps {
     src: string;
     size?: number;
     alt?: string;
+    resize?: 'cover' | 'contain';
 }
 
 export const Avatar = ({
-    className, src, size, alt,
+    className, src, size, alt, resize = 'contain',
 }: AvatarProps) => {
     const mods: Mods = {};
 
     const styles = useMemo<CSSProperties>(() => ({
         width: size || 100,
         height: size || 100,
-    }), [size]);
+        objectFit: resize,
+    }), [size, resize]);
 
     return (
         <img
