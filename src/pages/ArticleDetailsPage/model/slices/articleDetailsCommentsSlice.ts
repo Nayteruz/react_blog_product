@@ -9,11 +9,11 @@ const commentsAdapter = createEntityAdapter<Comment>({
 });
 
 export const getArticleComments = commentsAdapter.getSelectors<StateSchema>(
-    (state) => state.articleDetailsComments || commentsAdapter.getInitialState(),
+    (state) => state.articleDetailsPage?.comments || commentsAdapter.getInitialState(),
 );
 
-const articleDetailsCommentsSLice = createSlice({
-    name: 'articleDetailsCommentsSLice',
+const articleDetailsCommentsSlice = createSlice({
+    name: 'articleDetailsCommentsSlice',
     initialState: commentsAdapter.getInitialState<ArticleDetailsCommentSchema>({
         isLoading: false,
         error: undefined,
@@ -44,4 +44,4 @@ const articleDetailsCommentsSLice = createSlice({
     },
 });
 
-export const { reducer: articleDetailsCommentReducer } = articleDetailsCommentsSLice;
+export const { reducer: articleDetailsCommentReducer } = articleDetailsCommentsSlice;

@@ -49,6 +49,13 @@
 }
 
 .SIMPLE {
+    min-width: 230px;
+    text-decoration: none;
+
+    &:hover {
+        opacity: 1;
+    }
+
     .date {
         position: absolute;
         right: 0;

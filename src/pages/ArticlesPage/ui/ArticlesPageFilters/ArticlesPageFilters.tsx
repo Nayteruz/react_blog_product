@@ -48,7 +48,10 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
 
     const onChangeView = useCallback((view: ArticleView) => {
         dispatch(articlesPageActions.setView(view));
-    }, [dispatch]);
+        dispatch(articlesPageActions.setPage(1));
+        dispatch(articlesPageActions.initState());
+        fetchData();
+    }, [dispatch, fetchData]);
 
     const onChangeSort = useCallback((newSort: ArticleSortFiled) => {
         dispatch(articlesPageActions.setSort(newSort));

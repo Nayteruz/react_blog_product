@@ -1,7 +1,20 @@
+.ArticleListItem {
+    width: 250px;
+    overflow: hidden;
+}
+
 .ArticleDetailsPage {
     color: #fff;
 }
 
 .commentTitle {
     margin-top: 20px;
+}
+
+.recommendations {
+    margin-top: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 250px));
+    grid-auto-flow: column;
+    overflow: auto hidden;
+    padding: 3px 3px 10px;
 }
