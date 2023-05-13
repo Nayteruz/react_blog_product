@@ -19,3 +19,12 @@
 .active {
     color: #f00;
 }
+
+.appName {
+    min-width: var(--sidebar-width);
+    margin-left: 15px;
+}
+
+.createBtn {
+    margin-left: 15px;
+}

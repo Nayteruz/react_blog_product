@@ -16,5 +16,6 @@
     "Форма авторизации": "Authorization",
     "Вы ввели не верный логин или пароль": "Incorrect username or password",
     "Страница профиля": "Profile page",
-    "Профиль": "Profile"
+    "Профиль": "Profile",
+    "Создать статью": "Create article"
 }
