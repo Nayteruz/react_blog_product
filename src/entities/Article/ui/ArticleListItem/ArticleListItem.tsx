@@ -9,6 +9,7 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX } from 'app/providers/ThemeProvider/lib/ThemeContext';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import {
     Article, ArticleBlockType, ArticleTextBlock, ArticleView,
@@ -20,11 +21,12 @@ interface ArticleListItemProps {
     article: Article;
     view: ArticleView;
     target?: HTMLAttributeAnchorTarget;
+    index: number;
 }
 
 export const ArticleListItem = memo((props: ArticleListItemProps) => {
     const {
-        className, article, view, target,
+        className, article, view, target, index,
     } = props;
     const { t } = useTranslation('article');
 
@@ -35,6 +37,10 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
             <Icon Svg={EyeIcon} className={cls.views_icon} />
         </>
     );
+
+    const handleButtonClick = () => {
+        sessionStorage.setItem(ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX, JSON.stringify(index));
+    };
 
     if (view === ArticleView.LIST) {
         const textBlock = article.blocks.find(
@@ -56,7 +62,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                     )}
                     <div className={cls.footer}>
                         <AppLink target={target} to={RoutePath.article_details + article.id}>
-                            <Button theme={ButtonTheme.OUTLINE}>
+                            <Button theme={ButtonTheme.OUTLINE} onClick={handleButtonClick}>
                                 {t('Читать далее')}
                             </Button>
                         </AppLink>
@@ -72,6 +78,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
             target={target}
             to={RoutePath.article_details + article.id}
             className={cn('', {}, [className, cls[view]])}
+            onClick={handleButtonClick}
         >
             <Card className={cls.card}>
                 <div className={cls.imageWrapper}>

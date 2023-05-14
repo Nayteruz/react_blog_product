@@ -1,26 +1,59 @@
+.itemsWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 20px 20px 20px 45px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 .SIMPLE {
-    display: grid;
-    grid-template-columns: repeat(3, calc(33% - 20px));
-    gap: 30px;
+    width: 99%;
 
-    .card {
-        display: inline-flex;
-        height: 300px;
-    }
-
-    .row {
+    .itemsWrapper {
         display: grid;
-        grid-template-columns: repeat(3, calc(33.333% - 20px));
-        gap: 20px;
+        grid-template-columns: repeat(3, calc(33% - 20px));
+        gap: 30px;
+        width: 100%;
     }
 }
 
 .LIST {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
+    width: 100%;
+
+    .itemsWrapperList {
+        [data-test-id="virtuoso-item-list"] {
+            margin: 30px 20px 20px 45px;
+        }
+    }
+
+    .card {
+        margin: 20px 0;
+    }
 }
 
 .notFound {
     grid-template-columns: 1fr;
+}
+
+.skeleton {
+    margin-bottom: 30px;
+}
+
+.ItemContainer {
+    width: 230px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px;
+    margin: 0 30px;
+
+    @media (max-width: 1024px) {
+        width: 50%;
+    }
+
+    @media (max-width: 300px) {
+        width: 100%;
+    }
 }
