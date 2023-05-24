@@ -1,4 +1,6 @@
-import { memo, ReactNode } from 'react';
+import {
+    DetailedHTMLProps, HtmlHTMLAttributes, memo, ReactNode,
+} from 'react';
 import { classNames as cn, Mods } from 'shared/lib/classNames/classNames';
 import cls from './Flex.module.scss';
 
@@ -7,7 +9,9 @@ export type FlexAlign = 'flex-start' | 'flex-end' | 'center' | 'stretch';
 export type FlexDirection = 'row' | 'column' | 'row-reverse' | 'column-reverse';
 export type FlexGap = '4' | '8' | '16' | '32';
 
-export interface FlexProps {
+type DivProps = Omit<DetailedHTMLProps<HtmlHTMLAttributes<HTMLDivElement>, HTMLDivElement>, 'ref'>
+
+export interface FlexProps extends DivProps {
     className?: string;
     children: ReactNode;
     justify?: FlexJustify;

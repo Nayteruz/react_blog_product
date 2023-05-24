@@ -108,7 +108,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
             {
                 // eslint-disable-next-line no-nested-ternary
                 !isLazy
-                    ? <HStack gap="16">{articles.map((article, index) => renderArticle(index, article))}</HStack>
+                    ? <HStack gap="16" align="stretch">{articles.map((article, index) => renderArticle(index, article))}</HStack>
                     : view === 'LIST' ? (
                         <Virtuoso
                             style={{ height: '100%' }}
