@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next';
 import { Virtuoso, VirtuosoGrid, VirtuosoGridHandle } from 'react-virtuoso';
 import { ArticlesPageFilters } from 'pages/ArticlesPage/ui/ArticlesPageFilters/ArticlesPageFilters';
 import { ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX } from 'app/providers/ThemeProvider/lib/ThemeContext';
+import { HStack, VStack } from 'shared/ui/Stack';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { Article, ArticleView } from '../../model/types/article';
@@ -19,6 +20,7 @@ interface ArticleListProps {
     view?: ArticleView;
     target?: HTMLAttributeAnchorTarget;
     onLoadNextPart?: () => void;
+    isLazy?: boolean;
 }
 
 const Header = () => <ArticlesPageFilters />;
@@ -37,6 +39,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
         isLoading,
         target,
         onLoadNextPart,
+        isLazy = true,
     } = props;
     const { t } = useTranslation('article');
     const [selectedArticleId, setSelectedArticleId] = useState(1);
@@ -101,41 +104,44 @@ export const ArticleList = memo((props: ArticleListProps) => {
     };
 
     return (
-        <div className={cn(cls.ArticleList, {}, [className, cls[view]])}>
+        <VStack className={cn(cls.ArticleList, {}, [className, cls[view]])}>
             {
-                view === 'LIST' ? (
-                    <Virtuoso
-                        style={{ height: '100%' }}
-                        data={articles}
-                        itemContent={renderArticle}
-                        endReached={onLoadNextPart}
-                        className={cls.itemsWrapperList}
-                        initialTopMostItemIndex={selectedArticleId}
-                        components={{
-                            Header,
-                            Footer,
-                        }}
-                    />
-                )
-                    : (
-                        <VirtuosoGrid
-                            ref={virtuosoGridRef}
-                            totalCount={articles.length}
-                            components={{
-                                Header,
-                                ScrollSeekPlaceholder: ItemContainerComp,
-                            }}
-                            endReached={onLoadNextPart}
+                // eslint-disable-next-line no-nested-ternary
+                !isLazy
+                    ? <HStack gap="16">{articles.map((article, index) => renderArticle(index, article))}</HStack>
+                    : view === 'LIST' ? (
+                        <Virtuoso
+                            style={{ height: '100%' }}
                             data={articles}
                             itemContent={renderArticle}
-                            listClassName={cls.itemsWrapper}
-                            scrollSeekConfiguration={{
-                                enter: (velocity) => Math.abs(velocity) > 200,
-                                exit: (velocity) => Math.abs(velocity) < 30,
+                            endReached={onLoadNextPart}
+                            className={cls.itemsWrapperList}
+                            initialTopMostItemIndex={selectedArticleId}
+                            components={{
+                                Header,
+                                Footer,
                             }}
                         />
                     )
+                        : (
+                            <VirtuosoGrid
+                                ref={virtuosoGridRef}
+                                totalCount={articles.length}
+                                components={{
+                                    Header,
+                                    ScrollSeekPlaceholder: ItemContainerComp,
+                                }}
+                                endReached={onLoadNextPart}
+                                data={articles}
+                                itemContent={renderArticle}
+                                listClassName={cls.itemsWrapper}
+                                scrollSeekConfiguration={{
+                                    enter: (velocity) => Math.abs(velocity) > 200,
+                                    exit: (velocity) => Math.abs(velocity) < 30,
+                                }}
+                            />
+                        )
             }
-        </div>
+        </VStack>
     );
 });

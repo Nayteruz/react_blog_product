@@ -2,7 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { Theme } from 'app/providers/ThemeProvider';
 import 'app/styles/index.scss';
-import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
+import { Text, TextSize, TextTheme } from './Text';
 import { ThemeDecorator } from '../../config/storybook/ThemeDecorator/ThemeDecorator';
 
 export default {

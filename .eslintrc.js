@@ -19,8 +19,9 @@ module.exports = {
         ecmaVersion: 'latest',
         sourceType: 'module',
     },
-    plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks'],
+    plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks', 'nayteruz-test-production-plugin'],
     rules: {
+        'nayteruz-test-production-plugin/path-checker': 'error',
         indent: [2, 4],
         'react/jsx-indent-props': [2, 4],
         'react/jsx-indent': [2, 4],
@@ -58,6 +59,7 @@ module.exports = {
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
         'arrow-body-style': 'off',
+
     },
     globals: {
         __IS_DEV__: true,

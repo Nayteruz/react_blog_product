@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import React, { memo } from 'react';
 import { classNames as cn } from 'shared/lib/classNames/classNames';
 import cls from './Icon.module.scss';
@@ -9,7 +8,6 @@ interface IconProps {
 }
 
 export const Icon = memo(({ className, Svg }: IconProps) => {
-    const { t } = useTranslation();
     return (
         <Svg className={cn(cls.Icon, {}, [className])} />
     );
