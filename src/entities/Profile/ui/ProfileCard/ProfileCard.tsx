@@ -8,6 +8,7 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Currency, CurrencySelect } from 'entities/Currency';
 import { Country, CountrySelect } from 'entities/Country';
 import { HStack, VStack } from 'shared/ui/Stack';
+import ListBox from 'shared/ui/ListBox/ListBox';
 import cls from './ProfileCard.module.scss';
 import { Profile } from '../../model/types/profile';
 
@@ -126,12 +127,14 @@ export const ProfileCard = (props: ProfileCardProps) => {
                 value={data?.currency}
                 onChange={onChangeCurrency}
                 readonly={readonly}
+                direction="top"
             />
             <CountrySelect
                 className={cls.input}
                 value={data?.country}
                 onChange={onChangeCountry}
                 readonly={readonly}
+                direction="top"
             />
         </VStack>
     );

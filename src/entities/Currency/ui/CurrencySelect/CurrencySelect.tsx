@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { classNames as cn } from 'shared/lib/classNames/classNames';
-import { Select } from 'shared/ui/Select/Select';
 import { memo, useCallback, useMemo } from 'react';
+import ListBox, { DropdownDirection } from 'shared/ui/ListBox/ListBox';
 import { Currency } from '../../model/types/currency';
 
 interface CurrencySelectProps {
@@ -9,10 +9,11 @@ interface CurrencySelectProps {
     value?: Currency;
     onChange?: (value: Currency) => void;
     readonly?: boolean;
+    direction: DropdownDirection;
 }
 
 export const CurrencySelect = memo(({
-    className, value, onChange, readonly,
+    className, value, onChange, readonly, direction,
 }: CurrencySelectProps) => {
     const { t } = useTranslation('profile');
 
@@ -23,13 +24,15 @@ export const CurrencySelect = memo(({
     }, [onChange]);
 
     return (
-        <Select
+        <ListBox
             className={cn('', {}, [className])}
-            label={t('Укажите валюту')}
-            options={options}
+            items={options}
             value={value}
             onChange={onChangeHandler}
+            defaultValue={t('Укажите валюту')}
+            label={t('Укажите валюту')}
             readonly={readonly}
+            direction={direction}
         />
     );
 });

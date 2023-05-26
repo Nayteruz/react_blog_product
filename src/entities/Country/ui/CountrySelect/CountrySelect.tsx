@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { classNames as cn } from 'shared/lib/classNames/classNames';
 import { useCallback, useMemo } from 'react';
-import { Select } from 'shared/ui/Select/Select';
+import ListBox, { DropdownDirection } from 'shared/ui/ListBox/ListBox';
 import { Country } from '../../model/types/country';
 
 interface CountrySelectProps {
@@ -9,10 +9,11 @@ interface CountrySelectProps {
     value?: Country;
     onChange?: (value: Country) => void;
     readonly?: boolean;
+    direction: DropdownDirection;
 }
 
 export const CountrySelect = ({
-    className, value, onChange, readonly,
+    className, value, onChange, readonly, direction,
 }: CountrySelectProps) => {
     const { t } = useTranslation('profile');
 
@@ -23,13 +24,15 @@ export const CountrySelect = ({
     }, [onChange]);
 
     return (
-        <Select
+        <ListBox
             className={cn('', {}, [className])}
-            label={t('Укажите страну')}
-            options={options}
+            items={options}
             value={value}
             onChange={onChangeHandler}
+            defaultValue={t('Укажите страну')}
+            label={t('Укажите страну')}
             readonly={readonly}
+            direction={direction}
         />
     );
 };
