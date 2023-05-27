@@ -8,6 +8,9 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators: [
+        (Story) => <div style={{ padding: '200px 30px' }}><Story /></div>,
+    ],
 } as ComponentMeta<typeof ListBox>;
 
 const Template: ComponentStory<typeof ListBox> = (args) => <ListBox {...args} />;
@@ -39,4 +42,37 @@ WithLabel.args = {
     },
     items: listItems,
     label: 'Test label',
+};
+
+export const WithLabelBottomRight = Template.bind({});
+WithLabelBottomRight.args = {
+    value: (() => firstItem.value) as unknown as string,
+    onChange: (val) => {
+        firstItem.value = val;
+    },
+    items: listItems,
+    label: 'Test label',
+    direction: 'bottom right',
+};
+
+export const WithLabelTopRight = Template.bind({});
+WithLabelTopRight.args = {
+    value: (() => firstItem.value) as unknown as string,
+    onChange: (val) => {
+        firstItem.value = val;
+    },
+    items: listItems,
+    label: 'Test label',
+    direction: 'top right',
+};
+
+export const WithLabelTopLeft = Template.bind({});
+WithLabelTopLeft.args = {
+    value: (() => firstItem.value) as unknown as string,
+    onChange: (val) => {
+        firstItem.value = val;
+    },
+    items: listItems,
+    label: 'Test label',
+    direction: 'top left',
 };

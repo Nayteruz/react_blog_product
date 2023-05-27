@@ -24,17 +24,30 @@
     box-shadow: 4px 4px 8px var(--list-bg);
     outline: none;
 
-    &.top {
+    &.top-left {
         bottom: 100%;
+        left: 0;
     }
 
-    &.bottom {
+    &.top-right {
+        bottom: 100%;
+        right: 0;
+    }
+
+    &.bottom-left {
         top: 100%;
+        left: 0;
+    }
+
+    &.bottom-right {
+        top: 100%;
+        right: 0;
     }
 }
 
 .item {
     padding: 10px 20px;
+    white-space: nowrap;
 }
 
 .active {
