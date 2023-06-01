@@ -5,6 +5,7 @@ const componentTemplate = require('./componentTemplate');
 const storyTemplate = require('./storyTemplate');
 const styleTemplate = require('./styleTemplate');
 
+// eslint-disable ts-ignore
 module.exports = async (layer, sliceName) => {
     const resolveUIPath = (...segments) => resolveRoot('src', layer, sliceName, 'ui', ...segments);
 

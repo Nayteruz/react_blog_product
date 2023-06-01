@@ -1,3 +1,4 @@
+// ts-ignore
 module.exports = (layer, componentName) => `import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 

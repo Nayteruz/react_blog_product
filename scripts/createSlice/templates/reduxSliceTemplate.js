@@ -1,5 +1,5 @@
 const firstCharUpperCase = require('../firstCharUpperCase');
-
+// ts-ignore
 module.exports = (sliceName) => {
     const typeName = `${firstCharUpperCase(sliceName)}Schema`;
 

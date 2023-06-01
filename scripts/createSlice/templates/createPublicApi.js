@@ -1,3 +1,4 @@
+// eslint-disable ts-ignore
 const fs = require('fs/promises');
 const resolveRoot = require('../resolveRoot');
 const firstCharUpperCase = require('../firstCharUpperCase');
