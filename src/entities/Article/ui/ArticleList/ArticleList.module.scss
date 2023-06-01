@@ -3,7 +3,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 8px;
-    padding: 20px 20px 20px 45px;
+    // padding: 20px 20px 20px 45px;
     margin-top: 20px;
     margin-bottom: 20px;
 }
@@ -24,13 +24,22 @@
 
     .itemsWrapperList {
         [data-test-id="virtuoso-item-list"] {
-            margin: 30px 20px 20px 45px;
+            // margin: 30px 20px 20px 45px;
         }
     }
 
     .card {
         margin: 20px 0;
     }
+}
+
+.recommendations {
+    margin-top: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 250px));
+    grid-auto-flow: column;
+    overflow: auto hidden;
+    padding: 3px 3px 10px;
+    display: grid;
 }
 
 .notFound {

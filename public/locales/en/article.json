@@ -12,5 +12,6 @@
     "Aйти": "It",
     "Наука": "Science",
     "Экономика": "Economics",
-    "Статьи не найдены": "Articles not found"
+    "Статьи не найдены": "Articles not found",
+    "Ошибка при загрузке статей": "Error on load articles"
 }

@@ -1,18 +1,15 @@
 import { memo, useCallback } from 'react';
-import { ArticleList } from 'entities/Article';
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
+import { classNames as cn } from 'shared/lib/classNames/classNames';
+import { Page } from 'widgets/Page/Page';
+import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
+import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlePage/fetchNextArticlesPage';
-import {
-    // getArticlesPageError,
-    getArticlesPageIsLoading,
-    getArticlesPageView,
-} from '../../model/selectors/articlesPageSelectors';
-import { articlesPageReducer, getArticles } from '../../model/slices/articlePageSlice';
+import { articlesPageReducer } from '../../model/slices/articlePageSlice';
 import cls from './ArticlesPage.module.scss';
 
 const reducers: ReducerList = {
@@ -21,10 +18,6 @@ const reducers: ReducerList = {
 
 const ArticlesPage = () => {
     const dispatch = useAppDispatch();
-    const articles = useSelector(getArticles.selectAll);
-    const isLoading = useSelector(getArticlesPageIsLoading);
-    const view = useSelector(getArticlesPageView);
-    // const error = useSelector(getArticlesPageError);
     const [searchParams] = useSearchParams();
 
     const onLoadNextPart = useCallback(() => dispatch(fetchNextArticlesPage()), [dispatch]);
@@ -33,27 +26,16 @@ const ArticlesPage = () => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
+            {/* <ArticlesPageFilters /> */}
+            <ArticleInfiniteList className={cls.list} />
             {/* <Page */}
             {/*    onScrollEnd={onLoadNextPart} */}
-            {/*    className={cn(cls.ArticlesPage, {}, [className])} */}
+            {/*    className={cn(cls.ArticlesPage, {})} */}
             {/* > */}
-            {/*    <ArticlesPageFilters /> */}
-            {/*    <ArticleList */}
-            {/*        className={cls.list} */}
-            {/*        isLoading={isLoading} */}
-            {/*        view={view} */}
-            {/*        articles={articles} */}
-            {/*    /> */}
+            {/*    /!* <ArticlesPageFilters /> *!/ */}
+            {/*    */}
             {/* </Page> */}
-            <ArticleList
-                isLoading={isLoading}
-                view={view}
-                articles={articles}
-                className={cls.listArticles}
-                onLoadNextPart={onLoadNextPart}
-            />
         </DynamicModuleLoader>
-
     );
 };
 

@@ -15,6 +15,7 @@ import { useTranslation } from 'react-i18next';
 import { SortOrder } from 'shared/types';
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
 import { ArticleType } from 'entities/Article/model/types/article';
+import { HStack, VStack } from 'shared/ui/Stack';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import {
     getArticlesPageOrder,
@@ -24,7 +25,6 @@ import {
     getArticlesPageView,
 } from '../../model/selectors/articlesPageSelectors';
 import { articlesPageActions } from '../../model/slices/articlePageSlice';
-import cls from './ArticlesPageFilters.module.scss';
 
 interface ArticlesPageFiltersProps {
     className?: string
@@ -78,8 +78,8 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
     }, [dispatch, fetchData]);
 
     return (
-        <div className={cn(cls.ArticlesPageFilters, {}, [className])}>
-            <div className={cls.sortWrapper}>
+        <VStack gap="16" className={cn('', {}, [className])}>
+            <HStack gap="16" justify="space-between">
                 <ArticleSortSelector
                     order={order}
                     sort={sort}
@@ -87,8 +87,8 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
                     onChangeSort={onChangeSort}
                 />
                 <ArticleViewSelector view={view} onViewClick={onChangeView} />
-            </div>
-            <Card className={cls.search}>
+            </HStack>
+            <Card>
                 <Input
                     placeholder={t('Поиск')}
                     placeholderTopName={false}
@@ -99,8 +99,7 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
             <ArticleTypeTabs
                 value={type}
                 onChangeType={onChangeType}
-                className={cls.tabs}
             />
-        </div>
+        </VStack>
     );
 });
