@@ -8,13 +8,20 @@
 }
 
 .SIMPLE {
-    width: 99%;
+    display: grid;
+    grid-template-columns: repeat(3, calc(33% - 20px));
+    gap: 30px;
+    width: 100%;
 
-    .itemsWrapper {
+    .card {
+        display: inline-flex;
+        height: 300px;
+    }
+
+    .row {
         display: grid;
-        grid-template-columns: repeat(3, calc(33% - 20px));
+        grid-template-columns: repeat(3, 1fr);
         gap: 30px;
-        width: 100%;
     }
 }
 
