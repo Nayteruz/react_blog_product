@@ -17,5 +17,8 @@
     "Вы ввели не верный логин или пароль": "Incorrect username or password",
     "Страница профиля": "Profile page",
     "Профиль": "Profile",
-    "Создать статью": "Create article"
+    "Создать статью": "Create article",
+    "Админ панель": "Admin panel",
+    "Админка": "Panel",
+    "У Вас нет доступа к этой странице": "You do not have access to this page"
 }
