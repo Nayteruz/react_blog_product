@@ -1,8 +1,6 @@
 import { classNames as cn } from 'shared/lib/classNames/classNames';
 import { Link, LinkProps } from 'react-router-dom';
-import {
-    createRef, forwardRef, memo, ReactNode,
-} from 'react';
+import { forwardRef, ReactNode } from 'react';
 import cls from './AppLink.module.scss';
 
 export enum AppLinkTheme {
@@ -17,7 +15,7 @@ interface AppLinkProps extends LinkProps{
     children?: ReactNode;
 }
 
-export const AppLink = forwardRef((props: AppLinkProps, ref) => {
+export const AppLink = forwardRef((props: AppLinkProps) => {
     const {
         className,
         children,

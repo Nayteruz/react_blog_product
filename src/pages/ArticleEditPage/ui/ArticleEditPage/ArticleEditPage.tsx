@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 import { Page } from 'widgets/Page/Page';
 import { useParams } from 'react-router-dom';
 import { Text } from 'shared/ui/Text/Text';
-import cls from './ArticleEditPage.module.scss';
 
 interface ArticleEditPageProps {
     className?: string;
@@ -20,7 +19,7 @@ const ArticleEditPage = memo((props: ArticleEditPageProps) => {
         : t('Создание новой статьи');
 
     return (
-        <Page className={cn(cls.ArticleEditPage, {}, [className])}>
+        <Page className={cn('', {}, [className])}>
             <Text title={titlePage} />
         </Page>
     );
