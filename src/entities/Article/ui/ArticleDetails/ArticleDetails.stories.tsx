@@ -1,5 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { StoryDecorator } from 'shared/config/storybook/StoryDecorator/StoryDecorator';
+import { LoadingSimple } from '../ArticleList/ArticleList.stories';
 import { ArticleBlockType, ArticleType, Article } from '../../model/types/article';
 import { ArticleDetails } from './ArticleDetails';
 
@@ -54,6 +55,7 @@ Normal.decorators = [StoryDecorator({
         data: article,
     },
 })];
+Normal.decorators = [StoryDecorator({})];
 
 export const Loading = Template.bind({});
 Loading.args = {};
@@ -62,6 +64,7 @@ Loading.decorators = [StoryDecorator({
         isLoading: true,
     },
 })];
+Loading.decorators = [StoryDecorator({})];
 
 export const Error = Template.bind({});
 Error.args = {};
@@ -70,3 +73,4 @@ Error.decorators = [StoryDecorator({
         error: 'Статья не найдена или отсутствует',
     },
 })];
+Error.decorators = [StoryDecorator({})];

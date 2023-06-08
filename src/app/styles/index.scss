@@ -15,7 +15,8 @@ body {
 }
 
 .content-page {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto 1fr;
     width: 100%;
 }
 

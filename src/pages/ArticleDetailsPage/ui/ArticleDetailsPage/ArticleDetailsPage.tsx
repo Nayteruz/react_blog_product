@@ -24,21 +24,13 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     const { t } = useTranslation('article-details');
     const { id } = useParams<{id: string}>();
 
-    if (!id) {
-        return (
-            <Page className={cn(cls.ArticleDetailsPage, {}, [className])}>
-                {t('Статья не найдена')}
-            </Page>
-        );
-    }
-
     return (
         <DynamicModuleLoader reducers={reducers}>
             <Page className={cn(cls.ArticleDetailsPage, {}, [className])}>
                 <VStack gap="16">
                     <ArticleDetailsPageHeader />
                     <ArticleDetails id={id} />
-                    <ArticleRecommendationsList />
+                    <ArticleRecommendationsList className={cls.simpleList} />
                     <ArticleDetailsComments id={id} />
                 </VStack>
             </Page>

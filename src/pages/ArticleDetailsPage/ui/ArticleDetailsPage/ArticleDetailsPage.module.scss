@@ -10,3 +10,7 @@
 .commentTitle {
     margin-top: 20px;
 }
+
+.simpleList {
+    grid-template-columns: repeat(3, calc(33% - 20px));
+}

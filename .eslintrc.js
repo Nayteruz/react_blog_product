@@ -59,6 +59,7 @@ module.exports = {
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
         'arrow-body-style': 'off',
+        'react/no-unstable-nested-components': 'off',
 
     },
     globals: {

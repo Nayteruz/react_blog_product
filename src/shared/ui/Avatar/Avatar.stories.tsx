@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-
 import 'app/styles/index.scss';
+import { StoryDecorator } from 'shared/config/storybook/StoryDecorator/StoryDecorator';
 import { Avatar } from './Avatar';
 import AvatarImg from '../../assets/test/avatar-example.png';
 
@@ -23,6 +23,7 @@ Primary.args = {
     src: AvatarImg,
     alt: 'avatar',
 };
+Primary.decorators = [StoryDecorator({})];
 
 export const Small = Template.bind({});
 Small.args = {
@@ -30,3 +31,4 @@ Small.args = {
     src: AvatarImg,
     alt: 'avatar',
 };
+Small.decorators = [StoryDecorator({})];

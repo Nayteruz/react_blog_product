@@ -29,6 +29,7 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
                 articles={articles}
                 view={ArticleView.SIMPLE}
                 virtualized={false}
+                className={className}
                 target="_blank"
             />
         </VStack>

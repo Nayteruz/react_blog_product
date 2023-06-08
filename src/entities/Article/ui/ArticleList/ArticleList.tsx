@@ -1,9 +1,16 @@
 import { classNames as cn } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { HTMLAttributeAnchorTarget, memo } from 'react';
+import {
+    ComponentType,
+    FC,
+    FunctionComponent, HTMLAttributeAnchorTarget, memo, ReactNode, useEffect, useRef, useState,
+} from 'react';
 import { Text, TextSize } from 'shared/ui/Text/Text';
 import { List, ListRowProps, WindowScroller } from 'react-virtualized';
+import { Virtuoso, VirtuosoGrid, VirtuosoGridHandle } from 'react-virtuoso';
 import { PAGE_ID } from 'widgets/Page/Page';
+import { ArticlesPageFilters } from 'pages/ArticlesPage/ui/ArticlesPageFilters/ArticlesPageFilters';
+import { ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX } from 'app/providers/ThemeProvider/lib/ThemeContext';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import cls from './ArticleList.module.scss';
@@ -16,6 +23,8 @@ interface ArticleListProps {
     target?: HTMLAttributeAnchorTarget;
     view?: ArticleView;
     virtualized?: boolean;
+    onLoadNextPart?: () => void;
+    headerItem?: ComponentType<{ context?: any; }> | undefined;
 }
 
 const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.SIMPLE ? 9 : 3)
@@ -32,43 +41,30 @@ export const ArticleList = memo((props: ArticleListProps) => {
         isLoading,
         target,
         virtualized = true,
+        headerItem,
+        onLoadNextPart,
     } = props;
     const { t } = useTranslation();
 
-    const isList = view === ArticleView.LIST;
+    const [selectedArticleId, setSelectedArticleId] = useState(1);
+    const virtuosoGridRef = useRef<VirtuosoGridHandle>(null);
 
-    const itemsPerRow = isList ? 1 : 3;
-    const rowCount = isList ? articles.length : Math.ceil(articles.length / itemsPerRow);
+    useEffect(() => {
+        const paged = sessionStorage.getItem(ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX) || 1;
+        setSelectedArticleId(+paged);
+    }, []);
 
-    const rowRender = ({
-        index, isScrolling, key, style,
-    }: ListRowProps) => {
-        const items = [];
-        const fromIndex = index * itemsPerRow;
-        const toIndex = Math.min(fromIndex + itemsPerRow, articles.length);
-
-        for (let i = fromIndex; i < toIndex; i += 1) {
-            items.push(
-                <ArticleListItem
-                    article={articles[i]}
-                    view={view}
-                    target={target}
-                    key={`str${i}`}
-                    className={cls.card}
-                />,
-            );
+    useEffect(() => {
+        let timeoutId: NodeJS.Timeout;
+        if (view === 'SIMPLE') {
+            timeoutId = setTimeout(() => {
+                if (virtuosoGridRef.current) {
+                    virtuosoGridRef.current.scrollToIndex(selectedArticleId);
+                }
+            }, 100);
         }
-
-        return (
-            <div
-                key={key}
-                style={style}
-                className={cls.row}
-            >
-                {items}
-            </div>
-        );
-    };
+        return () => clearTimeout(timeoutId);
+    }, [selectedArticleId, view]);
 
     if (!isLoading && !articles.length) {
         return (
@@ -77,52 +73,78 @@ export const ArticleList = memo((props: ArticleListProps) => {
             </div>
         );
     }
+    // @ts-ignore
+    const ItemContainerComp: FC<{index: number; width: number; height: number;}> = ({ index, width, height }) => {
+        <div className={cls.ItemContainer}>
+            <ArticleListItemSkeleton view={view} key={index} className={cls.card} />
+        </div>;
+    };
+
+    const Footer = memo(() => {
+        if (isLoading) {
+            return (
+                <div className={cls.skeleton}>
+                    {getSkeletons(view)}
+                </div>
+            );
+        }
+        return null;
+    });
+
+    const renderArticle = (index: number, article: Article) => (
+        <ArticleListItem
+            article={article}
+            view={view}
+            className={cls.card}
+            target={target}
+            key={article.id}
+            index={index}
+        />
+    );
 
     return (
-        <WindowScroller
-            scrollElement={document.getElementById(PAGE_ID) as Element}
-        >
-            {({
-                height,
-                width,
-                registerChild,
-                onChildScroll,
-                isScrolling,
-                scrollTop,
-            }) => (
-                <div
-                    ref={registerChild}
-                    className={cn(cls.ArticleList, {}, [className, cls[view]])}
-                >
-                    {virtualized
-                        ? (
-                            <List
-                                height={height ?? 700}
-                                rowCount={rowCount}
-                                rowHeight={isList ? 700 : 330}
-                                rowRenderer={rowRender}
-                                width={width ? width - 80 : 700}
-                                autoHeight
-                                onScroll={onChildScroll}
-                                isScrolling={isScrolling}
-                                scrollTop={scrollTop}
-                                listClassName={cls.itemsWrapper}
-                            />
-                        )
-                        : (
-                            articles.map((item) => (
-                                <ArticleListItem
-                                    article={item}
-                                    view={view}
-                                    target={target}
-                                    key={item.id}
-                                    className={cls.card}
-                                />
-                            ))
-                        )}
-                    {isLoading && getSkeletons(view)}
-                </div>
+        <div className={cn(cls.ArticleList, {}, [className, cls[view]])}>
+            {/* eslint-disable-next-line no-nested-ternary */}
+            { !virtualized ? (
+                articles.map((item) => (
+                    <ArticleListItem
+                        article={item}
+                        view={view}
+                        target={target}
+                        key={item.id}
+                        className={cls.card}
+                    />
+                ))
+            ) : view === 'LIST' ? (
+                <Virtuoso
+                    style={{ height: '100%' }}
+                    data={articles}
+                    itemContent={renderArticle}
+                    endReached={onLoadNextPart}
+                    initialTopMostItemIndex={selectedArticleId}
+                    components={{
+                        Header: headerItem,
+                        Footer,
+                    }}
+                />
+            ) : (
+                <VirtuosoGrid
+                    ref={virtuosoGridRef}
+                    totalCount={articles.length}
+                    components={{
+                        Header: headerItem,
+                        ScrollSeekPlaceholder: ItemContainerComp,
+                    }}
+                    endReached={onLoadNextPart}
+                    data={articles}
+                    itemContent={renderArticle}
+                    listClassName={cls.itemsWrapper}
+                    scrollSeekConfiguration={{
+                        enter: (velocity) => Math.abs(velocity) > 200,
+                        exit: (velocity) => Math.abs(velocity) < 30,
+                    }}
+                />
             )}
-        </WindowScroller>
+        </div>
     );
 });

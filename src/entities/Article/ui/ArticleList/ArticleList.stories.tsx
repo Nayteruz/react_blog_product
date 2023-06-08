@@ -1,5 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
+import { StoryDecorator } from 'shared/config/storybook/StoryDecorator/StoryDecorator';
+import { Normal } from 'shared/ui/ListBox/ListBox.stories';
 import { ArticleList } from './ArticleList';
 import { Article, ArticleView } from '../../model/types/article';
 
@@ -96,16 +98,20 @@ const article = {
 export const LoadingSimple = Template.bind({});
 LoadingSimple.args = {
     articles: [],
-    isLoading: true,
     view: ArticleView.SIMPLE,
+    virtualized: false,
+    isLoading: true,
 };
+LoadingSimple.decorators = [StoryDecorator({})];
 
 export const LoadingList = Template.bind({});
 LoadingList.args = {
     articles: [],
-    isLoading: true,
     view: ArticleView.LIST,
+    virtualized: false,
+    isLoading: true,
 };
+LoadingList.decorators = [StoryDecorator({})];
 
 export const ListList = Template.bind({});
 ListList.args = {
@@ -115,9 +121,10 @@ ListList.args = {
             ...article,
             id: String(index),
         })),
-    isLoading: false,
     view: ArticleView.LIST,
+    virtualized: false,
 };
+ListList.decorators = [StoryDecorator({})];
 
 export const ListSimple = Template.bind({});
 ListSimple.args = {
@@ -127,6 +134,7 @@ ListSimple.args = {
             ...article,
             id: String(index),
         })),
-    isLoading: false,
     view: ArticleView.SIMPLE,
+    virtualized: false,
 };
+ListSimple.decorators = [StoryDecorator({})];

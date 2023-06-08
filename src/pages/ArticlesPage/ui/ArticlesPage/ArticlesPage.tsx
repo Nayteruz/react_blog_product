@@ -27,16 +27,20 @@ const ArticlesPage = () => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-            <Page
-                onScrollEnd={onLoadNextPart}
-                className={cn(cls.ArticlesPage, {})}
-            >
-                <VStack gap="16">
-                    <ArticlesPageFilters />
-                    <ArticleInfiniteList className={cls.list} />
-                </VStack>
+            <div className={cls.itemsWrapper}>
+                <ArticleInfiniteList className={cls.list} onLoadNextPart={onLoadNextPart} />
+            </div>
 
-            </Page>
+            {/* <Page */}
+            {/*    onScrollEnd={onLoadNextPart} */}
+            {/*    className={cn(cls.ArticlesPage, {})} */}
+            {/* > */}
+            {/*    <VStack gap="16"> */}
+            {/*        <ArticlesPageFilters /> */}
+            {/*        <ArticleInfiniteList className={cls.list} /> */}
+            {/*    </VStack> */}
+
+            {/* </Page> */}
         </DynamicModuleLoader>
     );
 };

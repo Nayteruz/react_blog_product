@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-
+import { StoryDecorator } from 'shared/config/storybook/StoryDecorator/StoryDecorator';
 import { Flex } from './Flex';
 
 export default {
@@ -24,6 +24,7 @@ Row.args = {
         </>
     ),
 };
+Row.decorators = [StoryDecorator({})];
 
 export const RowGap4 = Template.bind({});
 RowGap4.args = {
@@ -38,6 +39,7 @@ RowGap4.args = {
         </>
     ),
 };
+RowGap4.decorators = [StoryDecorator({})];
 
 export const RowGap8 = Template.bind({});
 RowGap8.args = {
@@ -52,6 +54,7 @@ RowGap8.args = {
         </>
     ),
 };
+RowGap8.decorators = [StoryDecorator({})];
 
 export const RowGap16 = Template.bind({});
 RowGap16.args = {
@@ -66,6 +69,7 @@ RowGap16.args = {
         </>
     ),
 };
+RowGap16.decorators = [StoryDecorator({})];
 
 export const RowGap32 = Template.bind({});
 RowGap32.args = {
@@ -80,6 +84,7 @@ RowGap32.args = {
         </>
     ),
 };
+RowGap32.decorators = [StoryDecorator({})];
 
 export const Column = Template.bind({});
 Column.args = {
@@ -94,6 +99,7 @@ Column.args = {
         </>
     ),
 };
+Column.decorators = [StoryDecorator({})];
 
 export const ColumnGap16 = Template.bind({});
 ColumnGap16.args = {
@@ -109,6 +115,7 @@ ColumnGap16.args = {
         </>
     ),
 };
+ColumnGap16.decorators = [StoryDecorator({})];
 
 export const ColumnGap32 = Template.bind({});
 ColumnGap32.args = {
@@ -124,6 +131,7 @@ ColumnGap32.args = {
         </>
     ),
 };
+ColumnGap32.decorators = [StoryDecorator({})];
 
 export const ColumnAlignEnd = Template.bind({});
 ColumnAlignEnd.args = {
@@ -139,3 +147,4 @@ ColumnAlignEnd.args = {
         </>
     ),
 };
+ColumnAlignEnd.decorators = [StoryDecorator({})];

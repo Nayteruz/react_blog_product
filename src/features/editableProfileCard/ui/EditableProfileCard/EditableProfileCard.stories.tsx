@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-
+import { StoryDecorator } from 'shared/config/storybook/StoryDecorator/StoryDecorator';
 import { EditableProfileCard } from './EditableProfileCard';
 
 export default {
@@ -16,3 +16,4 @@ export const Normal = Template.bind({});
 Normal.args = {
 
 };
+Normal.decorators = [StoryDecorator({})];
