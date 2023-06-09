@@ -14,6 +14,7 @@ const MainPage = () => {
             <div>sdasdasd asdas dasd asd</div>
             <HStack>
                 <div>sdasdasd asdas dasd asd</div>
+                {/* eslint-disable @typescript-eslint/no-unused-vars */}
                 <ListBox
                     defaultValue="Выберите значение"
                     onChange={(value) => {}}

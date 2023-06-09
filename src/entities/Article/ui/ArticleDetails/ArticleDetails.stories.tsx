@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { StoryDecorator } from 'shared/config/storybook/StoryDecorator/StoryDecorator';
-import { LoadingSimple } from '../ArticleList/ArticleList.stories';
-import { ArticleBlockType, ArticleType, Article } from '../../model/types/article';
+import { ArticleBlockType, ArticleType } from '../../model/consts/articleConsts';
+import { Article } from '../../model/types/article';
 import { ArticleDetails } from './ArticleDetails';
 
 const article: Article = {

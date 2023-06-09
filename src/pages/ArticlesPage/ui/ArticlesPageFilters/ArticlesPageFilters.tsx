@@ -2,7 +2,7 @@ import { memo, useCallback } from 'react';
 import { classNames as cn } from 'shared/lib/classNames/classNames';
 import {
     ArticleSortFiled,
-    ArticleSortSelector,
+    ArticleSortSelector, ArticleType,
     ArticleTypeTabs,
     ArticleView,
     ArticleViewSelector,
@@ -14,7 +14,6 @@ import { Input } from 'shared/ui/Input/Input';
 import { useTranslation } from 'react-i18next';
 import { SortOrder } from 'shared/types';
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
-import { ArticleType } from 'entities/Article/model/types/article';
 import { HStack, VStack } from 'shared/ui/Stack';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import {

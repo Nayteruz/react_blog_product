@@ -10,6 +10,7 @@ interface ThemeSwitcherProps {
 }
 
 export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { theme, toggleTheme } = useTheme();
 
     return (

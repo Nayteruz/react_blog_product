@@ -3,18 +3,16 @@ import { useTranslation } from 'react-i18next';
 import {
     ComponentType,
     FC,
-    FunctionComponent, HTMLAttributeAnchorTarget, memo, ReactNode, useEffect, useRef, useState,
+    HTMLAttributeAnchorTarget, memo, useEffect, useRef, useState,
 } from 'react';
 import { Text, TextSize } from 'shared/ui/Text/Text';
-import { List, ListRowProps, WindowScroller } from 'react-virtualized';
 import { Virtuoso, VirtuosoGrid, VirtuosoGridHandle } from 'react-virtuoso';
-import { PAGE_ID } from 'widgets/Page/Page';
-import { ArticlesPageFilters } from 'pages/ArticlesPage/ui/ArticlesPageFilters/ArticlesPageFilters';
 import { ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX } from 'app/providers/ThemeProvider/lib/ThemeContext';
+import { ArticleView } from '../../model/consts/articleConsts';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import cls from './ArticleList.module.scss';
-import { Article, ArticleView } from '../../model/types/article';
+import { Article } from '../../model/types/article';
 
 interface ArticleListProps {
     className?: string;
@@ -74,6 +72,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
         );
     }
     // @ts-ignore
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const ItemContainerComp: FC<{index: number; width: number; height: number;}> = ({ index, width, height }) => {
         <div className={cls.ItemContainer}>
             <ArticleListItemSkeleton view={view} key={index} className={cls.card} />

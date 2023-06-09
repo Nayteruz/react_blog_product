@@ -1,5 +1,5 @@
 import { StateSchema } from 'app/providers/StoryProvider';
-import { ValidateProfileError } from '../../types/editableProfileCardSchema';
+import { ValidateProfileError } from '../../consts/consts';
 import { getProfileValidateErrors } from './getProfileValidateError';
 
 describe('getProfileReadonly.test', () => {

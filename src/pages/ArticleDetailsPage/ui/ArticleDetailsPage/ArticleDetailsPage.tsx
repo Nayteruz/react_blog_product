@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { classNames as cn } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
 import { ArticleDetails } from 'entities/Article';
@@ -21,7 +20,6 @@ const reducers: ReducerList = {
 };
 
 const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
-    const { t } = useTranslation('article-details');
     const { id } = useParams<{id: string}>();
 
     return (
