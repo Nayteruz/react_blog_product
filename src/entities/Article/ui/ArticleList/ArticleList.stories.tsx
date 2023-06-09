@@ -1,3 +1,4 @@
+/* @ts-ignore */
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { StoryDecorator } from 'shared/config/storybook/StoryDecorator/StoryDecorator';
@@ -15,6 +16,7 @@ export default {
 
 const Template: ComponentStory<typeof ArticleList> = (args) => <ArticleList {...args} />;
 
+// eslint-disabled
 const article = {
     id: '1',
     title: 'Javascript news asfasjf asfjkask f',
@@ -94,6 +96,7 @@ const article = {
         },
     ],
 } as Article;
+// eslint-enabled
 
 export const LoadingSimple = Template.bind({});
 LoadingSimple.args = {
