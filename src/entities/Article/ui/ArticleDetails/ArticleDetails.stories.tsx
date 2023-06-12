@@ -55,7 +55,6 @@ Normal.decorators = [StoryDecorator({
         data: article,
     },
 })];
-Normal.decorators = [StoryDecorator({})];
 
 export const Loading = Template.bind({});
 Loading.args = {};
@@ -64,7 +63,6 @@ Loading.decorators = [StoryDecorator({
         isLoading: true,
     },
 })];
-Loading.decorators = [StoryDecorator({})];
 
 export const Error = Template.bind({});
 Error.args = {};
@@ -73,4 +71,3 @@ Error.decorators = [StoryDecorator({
         error: 'Статья не найдена или отсутствует',
     },
 })];
-Error.decorators = [StoryDecorator({})];
