@@ -23,4 +23,3 @@ Normal.args = {
         + '    },\n'
         + '} as ComponentMeta<typeof Code>;',
 };
-Normal.decorators = [StoryDecorator({})];

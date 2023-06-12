@@ -1,5 +1,4 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-
 import { CommentList } from './CommentList';
 
 export default {

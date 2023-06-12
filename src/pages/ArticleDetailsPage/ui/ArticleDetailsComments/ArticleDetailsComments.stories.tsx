@@ -1,5 +1,4 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { StoryDecorator } from 'shared/config/storybook/StoryDecorator/StoryDecorator';
 import { ArticleDetailsComments } from './ArticleDetailsComments';
 
 export default {
@@ -16,4 +15,3 @@ export const Normal = Template.bind({});
 Normal.args = {
     id: '1',
 };
-Normal.decorators = [StoryDecorator({})];

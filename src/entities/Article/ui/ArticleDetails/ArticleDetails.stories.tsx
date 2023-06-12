@@ -1,3 +1,4 @@
+import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { StoryDecorator } from 'shared/config/storybook/StoryDecorator/StoryDecorator';
 import { ArticleBlockType, ArticleType } from '../../model/consts/articleConsts';

@@ -36,4 +36,3 @@ Normal.args = {
         },
     ],
 };
-Normal.decorators = [StoryDecorator({})];

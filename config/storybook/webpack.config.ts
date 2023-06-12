@@ -13,10 +13,8 @@ export default ({ config }: { config: webpack.Configuration }) => {
         locales: '',
         buildLocales: '',
     };
-    // @ts-ignore
-    config!.resolve!.modules.push(paths.src);
-    // @ts-ignore
-    config!.resolve!.extensions.push('.ts', '.tsx');
+    config!.resolve!.modules!.push(paths.src);
+    config!.resolve!.extensions!.push('.ts', '.tsx');
 
     // eslint-disable-next-line no-param-reassign
     // @ts-ignore
@@ -26,6 +24,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
         }
         return rule;
     });
+
     config!.module!.rules.push(buildSvgLoaders());
     config.module!.rules.push(buildCssLoaders(true));
 

@@ -1,10 +1,11 @@
 import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUsername';
-import { ArticleDetailsSchema } from 'entities/Article';
 import {
-    AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject,
+    AnyAction, EnhancedStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
+import { CombinedState } from 'redux';
 import { AxiosInstance } from 'axios';
+import { ArticleDetailsSchema } from 'entities/Article';
 import { ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
 import { AddCommentFormSchema } from 'features/addCommentForm';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
@@ -15,7 +16,7 @@ import { ProfileSchema } from 'features/editableProfileCard';
 export interface StateSchema {
     user: UserSchema;
     ui: UISchema;
-    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
+    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 
     // Асинхронные редюсеры
     loginForm?: LoginSchema;
@@ -23,11 +24,11 @@ export interface StateSchema {
     articleDetails?: ArticleDetailsSchema;
     addCommentForm?: AddCommentFormSchema;
     articlesPage?: ArticlesPageSchema;
-    articleDetailsPage?: ArticleDetailsPageSchema
+    articleDetailsPage?: ArticleDetailsPageSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;
-export type MountedReducers = OptionalRecord<StateSchemaKey, boolean>
+export type MountedReducers = OptionalRecord<StateSchemaKey, boolean>;
 
 export interface ReducerManager{
     getReducerMap: () => ReducersMapObject<StateSchema>;
@@ -43,7 +44,7 @@ export interface ReduxStoreWithManager extends EnhancedStore<StateSchema>{
 }
 
 export interface ThunkExtraArg {
-    api: AxiosInstance,
+    api: AxiosInstance;
 }
 
 export interface ThunkConfig<T> {

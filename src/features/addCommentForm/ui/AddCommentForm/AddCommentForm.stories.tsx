@@ -1,7 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-
 import { action } from '@storybook/addon-actions';
-import { StoryDecorator } from 'shared/config/storybook/StoryDecorator/StoryDecorator';
 import AddCommentForm from './AddCommentForm';
 
 export default {
@@ -18,6 +16,3 @@ export const Normal = Template.bind({});
 Normal.args = {
     onSendComment: action('onSendComment'),
 };
-Normal.decorators = [
-    StoryDecorator({}),
-];

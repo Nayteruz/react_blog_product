@@ -34,7 +34,6 @@ Normal.args = {
     },
     items: listItems,
 };
-Normal.decorators = [StoryDecorator({})];
 
 export const WithLabel = Template.bind({});
 WithLabel.args = {
@@ -45,7 +44,6 @@ WithLabel.args = {
     items: listItems,
     label: 'Test label',
 };
-WithLabel.decorators = [StoryDecorator({})];
 
 export const WithLabelBottomRight = Template.bind({});
 WithLabelBottomRight.args = {
@@ -57,7 +55,6 @@ WithLabelBottomRight.args = {
     label: 'Test label',
     direction: 'bottom right',
 };
-WithLabelBottomRight.decorators = [StoryDecorator({})];
 
 export const WithLabelTopRight = Template.bind({});
 WithLabelTopRight.args = {
@@ -69,7 +66,6 @@ WithLabelTopRight.args = {
     label: 'Test label',
     direction: 'top right',
 };
-WithLabelTopRight.decorators = [StoryDecorator({})];
 
 export const WithLabelTopLeft = Template.bind({});
 WithLabelTopLeft.args = {
@@ -81,4 +77,3 @@ WithLabelTopLeft.args = {
     label: 'Test label',
     direction: 'top left',
 };
-WithLabelTopLeft.decorators = [StoryDecorator({})];

@@ -21,7 +21,6 @@ Primary.args = {
     title: 'Text title',
     text: 'Text body',
 };
-Primary.decorators = [StoryDecorator({})];
 
 export const ErrorText = Template.bind({});
 ErrorText.args = {
@@ -29,38 +28,35 @@ ErrorText.args = {
     text: 'Text body',
     theme: TextTheme.ERROR,
 };
-ErrorText.decorators = [StoryDecorator({})];
 
 export const DarkText = Template.bind({});
 DarkText.args = {
     title: 'Text title',
     text: 'Text body',
 };
-DarkText.decorators = [ThemeDecorator(Theme.DARK), StoryDecorator({})];
+DarkText.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const OnlyTitle = Template.bind({});
 OnlyTitle.args = {
     title: 'Text title',
 };
-OnlyTitle.decorators = [StoryDecorator({})];
 
 export const OnlyTitleDark = Template.bind({});
 OnlyTitleDark.args = {
     title: 'Text title',
 };
-OnlyTitleDark.decorators = [ThemeDecorator(Theme.DARK), StoryDecorator({})];
+OnlyTitleDark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const OnlyText = Template.bind({});
 OnlyText.args = {
     text: 'Text body',
 };
-OnlyText.decorators = [StoryDecorator({})];
 
 export const OnlyTextDark = Template.bind({});
 OnlyTextDark.args = {
     text: 'Text body',
 };
-OnlyTextDark.decorators = [ThemeDecorator(Theme.DARK), StoryDecorator({})];
+OnlyTextDark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const SizeL = Template.bind({});
 SizeL.args = {
@@ -68,7 +64,6 @@ SizeL.args = {
     text: 'Text body',
     size: TextSize.L,
 };
-SizeL.decorators = [StoryDecorator({})];
 
 export const SizeM = Template.bind({});
 SizeM.args = {
@@ -76,7 +71,6 @@ SizeM.args = {
     text: 'Text body',
     size: TextSize.M,
 };
-SizeM.decorators = [StoryDecorator({})];
 
 export const SizeS = Template.bind({});
 SizeS.args = {
@@ -84,4 +78,3 @@ SizeS.args = {
     text: 'Text body',
     size: TextSize.S,
 };
-SizeS.decorators = [StoryDecorator({})];

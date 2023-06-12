@@ -11,8 +11,8 @@ import { ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX } from 'app/providers/ThemeProvider/
 import { ArticleView } from '../../model/consts/articleConsts';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
-import cls from './ArticleList.module.scss';
 import { Article } from '../../model/types/article';
+import cls from './ArticleList.module.scss';
 
 interface ArticleListProps {
     className?: string;
@@ -48,7 +48,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
     const virtuosoGridRef = useRef<VirtuosoGridHandle>(null);
 
     useEffect(() => {
-        const paged = sessionStorage.getItem(ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX) || 1;
+        const paged = sessionStorage.getItem(ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX) || 0;
         setSelectedArticleId(+paged);
     }, []);
 

@@ -7,9 +7,7 @@ module.exports = {
     extends: [
         'plugin:react/recommended',
         'airbnb',
-        'plugin:react/jsx-runtime',
         'plugin:i18next/recommended',
-        'plugin:storybook/recommended',
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
@@ -60,7 +58,7 @@ module.exports = {
         'react/no-array-index-key': 'off',
         'arrow-body-style': 'off',
         'react/no-unstable-nested-components': 'off',
-
+        'react/react-in-jsx-scope': 'off',
     },
     globals: {
         __IS_DEV__: true,

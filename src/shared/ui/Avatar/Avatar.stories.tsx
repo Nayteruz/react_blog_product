@@ -23,7 +23,6 @@ Primary.args = {
     src: AvatarImg,
     alt: 'avatar',
 };
-Primary.decorators = [StoryDecorator({})];
 
 export const Small = Template.bind({});
 Small.args = {
@@ -31,4 +30,3 @@ Small.args = {
     src: AvatarImg,
     alt: 'avatar',
 };
-Small.decorators = [StoryDecorator({})];

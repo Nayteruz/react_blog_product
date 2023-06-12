@@ -26,4 +26,3 @@ Primary.args = {
         { value: '12345', content: 'Третий пункт' },
     ],
 };
-Primary.decorators = [StoryDecorator({})];

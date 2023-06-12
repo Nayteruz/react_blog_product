@@ -32,4 +32,3 @@ Normal.args = {
     value: 'tab 2',
     onTabClick: action('onTabClick'),
 };
-Normal.decorators = [StoryDecorator({})];
