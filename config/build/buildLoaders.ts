@@ -4,26 +4,28 @@ import { buildCssLoaders } from './loaders/buildCssLoaders';
 import { buildSvgLoaders } from './loaders/buildSvgLoaders';
 import { buildBabelLoaders } from './loaders/buildBabelLoaders';
 import { buildFileLoaders } from './loaders/buildFileLoaders';
-import { buildTypescriptLoaders } from './loaders/buildTypescriptLoaders';
+// import { buildTypescriptLoaders } from './loaders/buildTypescriptLoaders';
 
 export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     const { isDev } = options;
     const svgLoader = buildSvgLoaders();
 
-    const babelLoader = buildBabelLoaders(options);
+    const codeBabelLoader = buildBabelLoaders({ ...options, isTsx: false });
+    const tsxCodeBabelLoader = buildBabelLoaders({ ...options, isTsx: true });
 
     const fileLoader = buildFileLoaders();
 
     const cssLoaders = buildCssLoaders(isDev);
 
     // Если не используем typescript - нужен babel-loader
-    const typescriptLoader = buildTypescriptLoaders();
+    // const typescriptLoader = buildTypescriptLoaders();
 
     return [
         fileLoader,
         svgLoader,
-        babelLoader,
-        typescriptLoader,
+        tsxCodeBabelLoader,
+        codeBabelLoader,
+        // typescriptLoader,
         cssLoaders,
     ];
 }
