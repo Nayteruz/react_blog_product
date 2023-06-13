@@ -1,7 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-
-import 'app/styles/index.scss';
-import { StoryDecorator } from 'shared/config/storybook/StoryDecorator/StoryDecorator';
+import '@/app/styles/index.scss';
 import { AppLink, AppLinkTheme } from './AppLink';
 import { ThemeDecorator } from '../../config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '../../../app/providers/ThemeProvider';

@@ -1,6 +1,6 @@
-import { classNames as cn } from 'shared/lib/classNames/classNames';
-import { Link, LinkProps } from 'react-router-dom';
 import { forwardRef, ReactNode } from 'react';
+import { Link, LinkProps } from 'react-router-dom';
+import { classNames as cn } from '@/shared/lib/classNames/classNames';
 import cls from './AppLink.module.scss';
 
 export enum AppLinkTheme {
@@ -15,7 +15,8 @@ interface AppLinkProps extends LinkProps{
     children?: ReactNode;
 }
 
-export const AppLink = forwardRef((props: AppLinkProps) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const AppLink = forwardRef((props: AppLinkProps, ref) => {
     const {
         className,
         children,

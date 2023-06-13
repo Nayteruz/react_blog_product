@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { StoryDecorator } from 'shared/config/storybook/StoryDecorator/StoryDecorator';
+import { StoryDecorator } from '@/shared/config/storybook/StoryDecorator/StoryDecorator';
 import { ArticleView } from '../../model/consts/articleConsts';
 import { ArticleList } from './ArticleList';
 import { Article } from '../../model/types/article';
@@ -99,7 +99,6 @@ export const LoadingSimple = Template.bind({});
 LoadingSimple.args = {
     articles: [],
     view: ArticleView.SIMPLE,
-    virtualized: false,
     isLoading: true,
 };
 LoadingSimple.decorators = [StoryDecorator({})];
@@ -108,7 +107,6 @@ export const LoadingList = Template.bind({});
 LoadingList.args = {
     articles: [],
     view: ArticleView.LIST,
-    virtualized: false,
     isLoading: true,
 };
 LoadingList.decorators = [StoryDecorator({})];
@@ -122,7 +120,6 @@ ListList.args = {
             id: String(index),
         })),
     view: ArticleView.LIST,
-    virtualized: false,
 };
 ListList.decorators = [StoryDecorator({})];
 
@@ -135,6 +132,5 @@ ListSimple.args = {
             id: String(index),
         })),
     view: ArticleView.SIMPLE,
-    virtualized: false,
 };
 ListSimple.decorators = [StoryDecorator({})];

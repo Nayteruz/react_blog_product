@@ -722,21 +722,27 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "roles": ["ADMIN"],
+      "roles": [
+        "ADMIN"
+      ],
       "avatar": "https://img.freepik.com/free-photo/side-view-male-hacker-with-gloves-laptop_23-2148578161.jpg"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "roles": ["USER"],
+      "roles": [
+        "USER"
+      ],
       "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcSYfUoqdk0b4EXYbz1u00tRldGO-BHA_LOWMv6Qno&s"
     },
     {
       "id": "3",
       "username": "manager",
       "password": "123",
-      "roles": ["MANAGER"],
+      "roles": [
+        "MANAGER"
+      ],
       "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcSYfUoqdk0b4EXYbz1u00tRldGO-BHA_LOWMv6Qno&s"
     }
   ],
@@ -746,8 +752,8 @@
       "first": "Alex",
       "lastname": "Nayter",
       "age": 35,
-      "currency": "EUR",
-      "country": "Belarus",
+      "currency": "USD",
+      "country": "Kazakhstan",
       "city": "Barnaul",
       "username": "nayteruz",
       "avatar": "https://img.freepik.com/free-photo/side-view-male-hacker-with-gloves-laptop_23-2148578161.jpg"

@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { Theme } from 'app/providers/ThemeProvider';
-import 'app/styles/index.scss';
+import { Theme } from '@/app/providers/ThemeProvider';
+import '@/app/styles/index.scss';
 import { ThemeDecorator } from '../../config/storybook/ThemeDecorator/ThemeDecorator';
 import { Modal } from './Modal';
 

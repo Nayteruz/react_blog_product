@@ -1,9 +1,9 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
-import { Text, TextSize } from 'shared/ui/Text/Text';
-import { ArticleList, ArticleView } from 'entities/Article';
-import { VStack } from 'shared/ui/Stack';
+import { useTranslation } from 'react-i18next';
+import { classNames as cn } from '@/shared/lib/classNames/classNames';
+import { Text, TextSize } from '@/shared/ui/Text/Text';
+import { ArticleList, ArticleView } from '@/entities/Article';
+import { VStack } from '@/shared/ui/Stack';
 import { useArticleRecommendationsList } from '../../api/articleRecommendationsApi';
 
 interface ArticleRecommendationsListProps {
@@ -20,7 +20,7 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
     }
 
     return (
-        <VStack gap="8" className={classNames('', {}, [className])}>
+        <VStack gap="8" className={cn('', {}, [className])}>
             <Text
                 size={TextSize.L}
                 title={t('Рекомендуем')}
@@ -28,7 +28,6 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
             <ArticleList
                 articles={articles}
                 view={ArticleView.SIMPLE}
-                virtualized={false}
                 className={className}
                 target="_blank"
             />

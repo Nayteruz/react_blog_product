@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { StoryDecorator } from 'shared/config/storybook/StoryDecorator/StoryDecorator';
+import { StoryDecorator } from '@/shared/config/storybook/StoryDecorator/StoryDecorator';
 import { ArticleSortSelector } from './ArticleSortSelector';
 
 export default {

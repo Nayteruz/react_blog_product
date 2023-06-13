@@ -22,6 +22,7 @@ export const StoryProvider = (props: StoryProviderProps) => {
         asyncReducers as ReducersMapObject<StateSchema>,
     );
 
+    // eslint-disable-next-line no-console
     console.log('RENDER');
 
     return (

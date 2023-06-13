@@ -1,9 +1,10 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React, {
     memo, ReactNode, useCallback, useEffect,
 } from 'react';
-import { classNames as cn } from 'shared/lib/classNames/classNames';
-import { useTheme } from 'app/providers/ThemeProvider';
-import { useAnimationLibs } from 'shared/lib/components/AnimationProvider';
+import { classNames as cn } from '@/shared/lib/classNames/classNames';
+import { useTheme } from '@/app/providers/ThemeProvider';
+import { useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
 import { Overlay } from '../Overlay/Overlay';
 import Portal from '../Portal/Portal';
 import cls from './Drawer.module.scss';
@@ -13,7 +14,7 @@ interface DrawerProps {
     children: ReactNode;
     isOpen?: boolean;
     onClose?: () => void;
-    lazy?: boolean;
+    // lazy?: boolean;
 }
 
 const height = window.innerHeight - 100;
@@ -27,7 +28,6 @@ export const DrawerContent = memo((props: DrawerProps) => {
         children,
         onClose,
         isOpen,
-        lazy,
     } = props;
 
     const openDrawer = useCallback(() => {
@@ -103,5 +103,10 @@ export const Drawer = memo((props: DrawerProps) => {
         return null;
     }
 
-    return <DrawerContent {...props} />;
+    return (
+        // eslint-disable-next-line react/jsx-props-no-spreading
+        <DrawerContent {...props}>
+            {props.children}
+        </DrawerContent>
+    );
 });
