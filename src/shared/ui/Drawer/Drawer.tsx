@@ -4,7 +4,7 @@ import React, {
 } from 'react';
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
 import { useTheme } from '@/app/providers/ThemeProvider';
-import { useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
+import { AnimationProvider, useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
 import { Overlay } from '../Overlay/Overlay';
 import Portal from '../Portal/Portal';
 import cls from './Drawer.module.scss';
@@ -96,7 +96,7 @@ export const DrawerContent = memo((props: DrawerProps) => {
     );
 });
 
-export const Drawer = memo((props: DrawerProps) => {
+const DrawerAsync = (props: DrawerProps) => {
     const { isLoaded } = useAnimationLibs();
 
     if (!isLoaded) {
@@ -104,9 +104,19 @@ export const Drawer = memo((props: DrawerProps) => {
     }
 
     return (
-        // eslint-disable-next-line react/jsx-props-no-spreading
-        <DrawerContent {...props}>
-            {props.children}
-        </DrawerContent>
+        <DrawerContent {...props} />
     );
-});
+};
+
+export const Drawer = (props: DrawerProps) => {
+    const { children } = props;
+
+    return (
+        // eslint-disable-next-line react/jsx-props-no-spreading
+        <AnimationProvider>
+            <DrawerAsync {...props}>
+                {children}
+            </DrawerAsync>
+        </AnimationProvider>
+    );
+};
