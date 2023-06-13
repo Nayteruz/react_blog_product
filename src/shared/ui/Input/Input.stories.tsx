@@ -1,8 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { Theme } from 'app/providers/ThemeProvider';
-import 'app/styles/index.scss';
-import { StoryDecorator } from 'shared/config/storybook/StoryDecorator/StoryDecorator';
+import { Theme } from '@/app/providers/ThemeProvider';
+import '@/app/styles/index.scss';
 import { ThemeDecorator } from '../../config/storybook/ThemeDecorator/ThemeDecorator';
 import { Input } from './Input';
 
@@ -21,11 +20,10 @@ Primary.args = {
     placeholder: 'Type text',
     value: '1234',
 };
-Primary.decorators = [StoryDecorator({})];
 
 export const PrimaryDark = Template.bind({});
 PrimaryDark.args = {
     placeholder: 'Type text',
     value: '1234',
 };
-PrimaryDark.decorators = [ThemeDecorator(Theme.DARK), StoryDecorator({})];
+PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];

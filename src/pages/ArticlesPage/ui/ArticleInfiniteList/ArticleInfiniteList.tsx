@@ -1,9 +1,8 @@
 import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
-import { ArticleList } from 'entities/Article';
 import { useSelector } from 'react-redux';
-import { Text } from 'shared/ui/Text/Text';
-import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
+import { useTranslation } from 'react-i18next';
+import { ArticleList } from '@/entities/Article';
+import { Text } from '@/shared/ui/Text/Text';
 import { getArticles } from '../../model/slices/articlePageSlice';
 import {
     getArticlesPageError,
@@ -13,11 +12,10 @@ import {
 
 interface ArticleInfiniteListProps {
     className?: string;
-    onLoadNextPart: () => void;
 }
 
 export const ArticleInfiniteList = memo((props: ArticleInfiniteListProps) => {
-    const { className, onLoadNextPart } = props;
+    const { className } = props;
     const { t } = useTranslation('article');
     const articles = useSelector(getArticles.selectAll);
     const isLoading = useSelector(getArticlesPageIsLoading);
@@ -34,8 +32,6 @@ export const ArticleInfiniteList = memo((props: ArticleInfiniteListProps) => {
             view={view}
             articles={articles}
             className={className}
-            onLoadNextPart={onLoadNextPart}
-            headerItem={() => <ArticlesPageFilters />}
         />
     );
 });

@@ -1,6 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { StoryDecorator } from 'shared/config/storybook/StoryDecorator/StoryDecorator';
 import { Tabs } from './Tabs';
 
 export default {
@@ -32,4 +31,3 @@ Normal.args = {
     value: 'tab 2',
     onTabClick: action('onTabClick'),
 };
-Normal.decorators = [StoryDecorator({})];

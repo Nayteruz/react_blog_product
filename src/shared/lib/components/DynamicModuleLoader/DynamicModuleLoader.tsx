@@ -1,7 +1,7 @@
 /* eslint-disable */
 import { FC, ReactNode, useEffect } from 'react';
 import { useStore } from 'react-redux';
-import { ReduxStoreWithManager, StateSchema, StateSchemaKey } from 'app/providers/StoryProvider/config/StateSchema';
+import { ReduxStoreWithManager, StateSchema, StateSchemaKey } from '@/app/providers/StoryProvider/config/StateSchema';
 import { Reducer } from '@reduxjs/toolkit';
 import { useAppDispatch } from '../../../lib/hooks/useAppDispatch/useAppDispatch';
 

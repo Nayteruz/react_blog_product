@@ -1,6 +1,4 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-
-import { StoryDecorator } from 'shared/config/storybook/StoryDecorator/StoryDecorator';
 import { Code } from './Code';
 
 export default {
@@ -23,4 +21,3 @@ Normal.args = {
         + '    },\n'
         + '} as ComponentMeta<typeof Code>;',
 };
-Normal.decorators = [StoryDecorator({})];

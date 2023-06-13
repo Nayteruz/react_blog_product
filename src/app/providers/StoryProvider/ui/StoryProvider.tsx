@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { Provider } from 'react-redux';
-import { createReduxStore } from 'app/providers/StoryProvider/config/store';
 import { ReducersMapObject } from '@reduxjs/toolkit';
+import { createReduxStore } from '../config/store';
 import { StateSchema } from '../config/StateSchema';
 
 interface StoryProviderProps {
@@ -21,6 +21,9 @@ export const StoryProvider = (props: StoryProviderProps) => {
         initialState as StateSchema,
         asyncReducers as ReducersMapObject<StateSchema>,
     );
+
+    // eslint-disable-next-line no-console
+    console.log('RENDER');
 
     return (
         <Provider store={store}>

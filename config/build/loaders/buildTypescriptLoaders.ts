@@ -1,7 +1,8 @@
-export function buildTypescriptLoaders() {
-    return {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
-    };
-}
+export {};
+// export function buildTypescriptLoaders() {
+//     return {
+//         test: /\.tsx?$/,
+//         use: 'ts-loader',
+//         exclude: /node_modules/,
+//     };
+// }

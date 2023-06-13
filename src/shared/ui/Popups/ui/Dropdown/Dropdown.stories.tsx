@@ -1,7 +1,6 @@
 /* eslint-disable no-alert */
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { StoryDecorator } from 'shared/config/storybook/StoryDecorator/StoryDecorator';
-import { Button } from '../Button/Button';
+import { Button } from '../../../Button/Button';
 import Dropdown from './Dropdown';
 
 export default {
@@ -36,4 +35,3 @@ Normal.args = {
         },
     ],
 };
-Normal.decorators = [StoryDecorator({})];
