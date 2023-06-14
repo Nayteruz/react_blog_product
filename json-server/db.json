@@ -769,5 +769,51 @@
       "username": "nayteruz2",
       "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcSYfUoqdk0b4EXYbz1u00tRldGO-BHA_LOWMv6Qno&s"
     }
+  ],
+  "article-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "1"
+    },
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "2"
+    },
+    {
+      "userId": "1",
+      "articleId": "5",
+      "rate": 4,
+      "feedback": "test",
+      "id": "H-8vKzF"
+    },
+    {
+      "userId": "1",
+      "articleId": "10",
+      "rate": 2,
+      "feedback": "Так себе статья",
+      "id": "X7g3k2O"
+    }
+  ],
+  "profile-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "profileId": "1"
+    },
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "profileId": "2"
+    }
   ]
 }
