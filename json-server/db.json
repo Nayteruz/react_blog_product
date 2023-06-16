@@ -768,6 +768,17 @@
       "city": "Краснодар",
       "username": "nayteruz2",
       "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcSYfUoqdk0b4EXYbz1u00tRldGO-BHA_LOWMv6Qno&s"
+    },
+    {
+      "id": "3",
+      "first": "Manager",
+      "lastname": "Nayter22",
+      "age": 28,
+      "currency": "RUB",
+      "country": "Россия",
+      "city": "Краснодар",
+      "username": "Nayter22",
+      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcSYfUoqdk0b4EXYbz1u00tRldGO-BHA_LOWMv6Qno&s"
     }
   ],
   "article-ratings": [
@@ -798,20 +809,27 @@
       "rate": 2,
       "feedback": "Так себе статья",
       "id": "X7g3k2O"
+    },
+    {
+      "userId": "3",
+      "articleId": "11",
+      "rate": 3,
+      "feedback": "tesaasdsd dasd asdas dasd ",
+      "id": "jfNx_kj"
     }
   ],
   "profile-ratings": [
     {
       "id": "1",
       "rate": 4,
-      "feedback": "Хорошая статья",
+      "feedback": "Хороший профиль",
       "userId": "1",
       "profileId": "1"
     },
     {
       "id": "1",
       "rate": 4,
-      "feedback": "Хорошая статья",
+      "feedback": "Хороший профиль",
       "userId": "1",
       "profileId": "2"
     }
