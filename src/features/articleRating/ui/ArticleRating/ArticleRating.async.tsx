@@ -7,6 +7,7 @@ const ArticleRatingLazy = lazy(
 );
 
 export const ArticleRatingAsync = (props: ArticleRatingProps) => {
+    /* eslint-disable react/jsx-props-no-spreading */
     return (
         <Suspense fallback={<Skeleton width="100%" height={120} />}>
             <ArticleRatingLazy {...props} />

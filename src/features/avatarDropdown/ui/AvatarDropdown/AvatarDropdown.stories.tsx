@@ -1,6 +1,9 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-
 import { AvatarDropdown } from './AvatarDropdown';
+import { StoryDecorator } from '@/shared/config/storybook/StoryDecorator/StoryDecorator';
+import { UserRole } from '@/entities/User';
+import '@/app/styles/index.scss';
+import '@/shared/ui/Popups/styles/popup.module.scss';
 
 export default {
     title: 'features/AvatarDropdown',
@@ -8,9 +11,36 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators: [StoryDecorator({
+        user: {
+            authData: { id: '1', username: 'admin', avatar: 'https://img.freepik.com/free-photo/side-view-male-hacker-with-gloves-laptop_23-2148578161.jpg' },
+        },
+    })],
 } as ComponentMeta<typeof AvatarDropdown>;
 
-const Template: ComponentStory<typeof AvatarDropdown> = (args) => <AvatarDropdown {...args} />;
+const Template: ComponentStory<typeof AvatarDropdown> = (args) => (
+    <div style={{
+        display: 'flex', justifyContent: 'flex-end', padding: 20, border: '1px solid #ccc',
+    }}
+    >
+        <AvatarDropdown {...args} />
+    </div>
+);
 
 export const Normal = Template.bind({});
 Normal.args = {};
+
+export const IsAdminOrManager = Template.bind({});
+IsAdminOrManager.args = {};
+IsAdminOrManager.decorators = [
+    StoryDecorator({
+        user: {
+            authData: {
+                avatar: 'https://img.freepik.com/free-photo/side-view-male-hacker-with-gloves-laptop_23-2148578161.jpg',
+                id: '1',
+                roles: [UserRole.ADMIN],
+                username: 'admin',
+            },
+        },
+    }),
+];

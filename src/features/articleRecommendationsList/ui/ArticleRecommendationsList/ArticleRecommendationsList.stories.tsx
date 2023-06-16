@@ -17,7 +17,7 @@ const Template: ComponentStory<typeof ArticleRecommendationsList> = (args) => <A
 
 const article: Article = {
     id: '1',
-    img: '',
+    img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
     createdAt: '',
     views: 1212,
     user: { id: '1', username: '123' },

@@ -19,7 +19,7 @@ module.exports = {
     },
     plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks', 'nayteruz-test-production-plugin'],
     rules: {
-        'nayteruz-test-production-plugin/path-checker': 'error',
+        'nayteruz-test-production-plugin/path-checker': ['error', { alias: '@' }],
         indent: [2, 4],
         'react/jsx-indent-props': [2, 4],
         'react/jsx-indent': [2, 4],

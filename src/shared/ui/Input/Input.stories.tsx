@@ -27,3 +27,10 @@ PrimaryDark.args = {
     value: '1234',
 };
 PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const NoLabel = Template.bind({});
+NoLabel.args = {
+    placeholder: 'Type text',
+    value: '1234',
+    placeholderTopName: false,
+};

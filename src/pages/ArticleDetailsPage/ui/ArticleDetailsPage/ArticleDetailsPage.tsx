@@ -1,4 +1,4 @@
-import { memo, Suspense } from 'react';
+import { memo } from 'react';
 import { useParams } from 'react-router-dom';
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
 import { ArticleDetails } from '@/entities/Article';
@@ -23,7 +23,7 @@ const reducers: ReducerList = {
 const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     const { id } = useParams<{id: string}>();
 
-    if (!id) {
+    if (!id && __PROJECT__ !== 'storybook') {
         return null;
     }
 

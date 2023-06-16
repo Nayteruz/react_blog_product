@@ -7,6 +7,7 @@ module.exports = {
         '@storybook/addon-essentials',
         '@storybook/addon-interactions',
         'storybook-addon-mock/register',
+        'storybook-addon-react-router-v6',
     ],
     framework: '@storybook/react',
     core: {
