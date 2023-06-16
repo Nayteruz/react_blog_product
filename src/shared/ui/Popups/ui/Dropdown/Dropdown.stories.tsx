@@ -19,19 +19,19 @@ Normal.args = {
     items: [
         {
             content: 'Test item 1',
-            onClick: () => { alert('click on item'); },
+            onClick: () => alert('click on item'),
         },
         {
             content: 'Test item 2',
-            onClick: () => { alert('click on item'); },
+            onClick: () => alert('click on item'),
         },
         {
             content: 'Test item 3',
-            onClick: () => { alert('click on item'); },
+            onClick: () => alert('click on item'),
         },
         {
             content: 'Test item 4',
-            onClick: () => { alert('click on item'); },
+            onClick: () => alert('click on item'),
         },
     ],
 };

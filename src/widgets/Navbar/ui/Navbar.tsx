@@ -22,13 +22,9 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     const [isAuthModal, setIsAuthModal] = useState(false);
     const authData = useSelector(getUserAuthData);
 
-    const onCloseModal = useCallback(() => {
-        setIsAuthModal(false);
-    }, []);
+    const onCloseModal = useCallback(() => setIsAuthModal(false), []);
 
-    const onShowModal = useCallback(() => {
-        setIsAuthModal(true);
-    }, []);
+    const onShowModal = useCallback(() => setIsAuthModal(true), []);
 
     if (authData) {
         return (

@@ -5,6 +5,7 @@ import { StoryDecorator } from '@/shared/config/storybook/StoryDecorator/StoryDe
 import { ArticleBlockType } from '@/entities/Article/model/consts/articleConsts';
 import ArticleDetailsPage from './ArticleDetailsPage';
 
+// eslint-disable
 const article: Article = {
     id: '1',
     title: 'Javascript news',
@@ -38,6 +39,7 @@ const article: Article = {
         },
     ],
 };
+// eslint-enable
 
 export default {
     title: 'pages/ArticleDetails/ArticleDetailsPage',

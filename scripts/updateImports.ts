@@ -22,4 +22,4 @@ files.forEach((sourceFile) => {
     });
 });
 
-project.save();
+project.save().then(() => {});

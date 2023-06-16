@@ -4,6 +4,7 @@ import { Article, ArticleView } from '@/entities/Article';
 import { StoryDecorator } from '@/shared/config/storybook/StoryDecorator/StoryDecorator';
 
 // eslint-disabled
+// @ts-ignore
 const article = {
     id: '1',
     title: 'Javascript news asfasjf asfjkask f',

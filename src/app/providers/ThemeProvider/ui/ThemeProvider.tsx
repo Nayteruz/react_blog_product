@@ -24,9 +24,7 @@ const ThemeProvider = (props: ThemeProviderProps) => {
         document.body.className = defaultTheme;
     };
 
-    useEffect(() => {
-        onRender();
-    }, []);
+    useEffect(() => onRender(), []);
 
     return (
         <ThemeContext.Provider value={defaultProps}>

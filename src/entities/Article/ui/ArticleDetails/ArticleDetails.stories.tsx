@@ -5,6 +5,7 @@ import { ArticleBlockType, ArticleType } from '../../model/consts/articleConsts'
 import { Article } from '../../model/types/article';
 import { ArticleDetails } from './ArticleDetails';
 
+// eslint-disable
 const article: Article = {
     id: '1',
     title: 'Javascript news',
@@ -38,6 +39,7 @@ const article: Article = {
         },
     ],
 };
+// eslint-enable
 
 export default {
     title: 'entities/ArticleDetails',
