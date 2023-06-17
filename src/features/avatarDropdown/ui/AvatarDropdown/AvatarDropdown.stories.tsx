@@ -1,9 +1,10 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { AvatarDropdown } from './AvatarDropdown';
-import { StoryDecorator } from '@/shared/config/storybook/StoryDecorator/StoryDecorator';
+import { StoryDecorator } from '@/shared/config/storybook';
 import { UserRole } from '@/entities/User';
-import '@/app/styles/index.scss';
 import '@/shared/ui/Popups/styles/popup.module.scss';
+// eslint-disable-next-line nayteruz-test-production-plugin/layer-imports
+import '@/app/styles/index.scss';
 
 export default {
     title: 'features/AvatarDropdown',

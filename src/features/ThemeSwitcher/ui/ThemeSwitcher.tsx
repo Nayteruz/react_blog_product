@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
-import { useTheme } from '@/app/providers/ThemeProvider';
+import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import SwitcherIcon from '@/shared/assets/icons/icon_theme.svg';
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
 import cls from './ThemeSwitcher.module.scss';

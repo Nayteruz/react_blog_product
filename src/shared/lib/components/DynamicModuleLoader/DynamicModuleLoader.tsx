@@ -1,8 +1,7 @@
-/* eslint-disable */
 import { FC, ReactNode, useEffect } from 'react';
 import { useStore } from 'react-redux';
-import { ReduxStoreWithManager, StateSchema, StateSchemaKey } from '@/app/providers/StoryProvider/config/StateSchema';
 import { Reducer } from '@reduxjs/toolkit';
+import { ReduxStoreWithManager, StateSchema, StateSchemaKey } from '@/app/providers/StoryProvider';
 import { useAppDispatch } from '../../../lib/hooks/useAppDispatch/useAppDispatch';
 
 export type ReducerList = {
@@ -43,9 +42,11 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
                 });
             }
         };
+        // eslint-disable-next-line
     }, []);
 
     return (
+        // eslint-disable-next-line react/jsx-no-useless-fragment
         <>
             {children}
         </>

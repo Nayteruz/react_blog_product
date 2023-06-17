@@ -1,8 +1,9 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Theme } from '@/shared/const/theme';
+// eslint-disable-next-line nayteruz-test-production-plugin/layer-imports
 import '@/app/styles/index.scss';
 import { AppLink, AppLinkTheme } from './AppLink';
 import { ThemeDecorator } from '../../config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '../../../app/providers/ThemeProvider';
 
 export default {
     title: 'shared/AppLink',

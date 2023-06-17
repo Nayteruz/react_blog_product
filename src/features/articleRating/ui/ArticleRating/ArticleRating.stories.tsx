@@ -1,7 +1,8 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import withMock from 'storybook-addon-mock';
+import { StoryDecorator, ThemeDecorator } from '@/shared/config/storybook';
 import ArticleRating from './ArticleRating';
-import { StoryDecorator } from '@/shared/config/storybook/StoryDecorator/StoryDecorator';
+import { Theme } from '@/shared/const/theme';
 
 export default {
     title: 'features/ArticleRating',
@@ -9,7 +10,7 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    decorators: [withMock],
+    decorators: [withMock, (Story) => (<div style={{ padding: 20 }}><Story /></div>)],
 } as ComponentMeta<typeof ArticleRating>;
 
 const Template: ComponentStory<typeof ArticleRating> = (args) => <ArticleRating {...args} />;
@@ -54,6 +55,30 @@ WithoutRate.parameters = {
             method: 'GET',
             status: 200,
             response: [],
+        },
+    ],
+};
+
+export const NormalDark = Template.bind({});
+NormalDark.args = {
+    articleId: '1',
+};
+NormalDark.decorators = [StoryDecorator({
+    user: {
+        authData: { id: '1' },
+    },
+}), ThemeDecorator(Theme.DARK)];
+NormalDark.parameters = {
+    mockData: [
+        {
+            url: `${__API__}/article-ratings?userId=1&articleId=1`,
+            method: 'GET',
+            status: 200,
+            response: [
+                {
+                    rate: 4,
+                },
+            ],
         },
     ],
 };

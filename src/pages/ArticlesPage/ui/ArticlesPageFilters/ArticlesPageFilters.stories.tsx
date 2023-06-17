@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { StoryDecorator } from '@/shared/config/storybook';
 import { ArticlesPageFilters } from './ArticlesPageFilters';
-import { StoryDecorator } from '@/shared/config/storybook/StoryDecorator/StoryDecorator';
 
 export default {
     title: 'pages/ArticlePage/ArticlesPageFilters',

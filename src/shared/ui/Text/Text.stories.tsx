@@ -1,8 +1,9 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Theme } from '@/app/providers/ThemeProvider';
-import '@/app/styles/index.scss';
 import { Text, TextSize, TextTheme } from './Text';
 import { ThemeDecorator } from '../../config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/shared/const/theme';
+// eslint-disable-next-line nayteruz-test-production-plugin/layer-imports
+import '@/app/styles/index.scss';
 
 export default {
     title: 'shared/Text',

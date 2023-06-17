@@ -23,3 +23,4 @@ root.render(
         </StoryProvider>
     </BrowserRouter>,
 );
+export { Theme } from '@/shared/const/theme';

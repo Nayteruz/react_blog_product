@@ -1,6 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import '@/app/styles/index.scss';
 import { Select } from './Select';
+// eslint-disable-next-line nayteruz-test-production-plugin/layer-imports
+import '@/app/styles/index.scss';
 
 export default {
     title: 'shared/Select',

@@ -1,7 +1,8 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Theme } from '@/app/providers/ThemeProvider';
+import { Theme } from '@/shared/const/theme';
 import { Button, ButtonSize, ButtonTheme } from './Button';
 import { ThemeDecorator } from '../../config/storybook/ThemeDecorator/ThemeDecorator';
+// eslint-disable-next-line nayteruz-test-production-plugin/layer-imports
 import '@/app/styles/index.scss';
 
 export default {

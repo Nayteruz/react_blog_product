@@ -1,10 +1,9 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-
-import { Theme } from '@/app/providers/ThemeProvider';
-import '@/app/styles/index.scss';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { StoryDecorator } from '@/shared/config/storybook/StoryDecorator/StoryDecorator';
+import { StoryDecorator, ThemeDecorator } from '@/shared/config/storybook';
+import { Theme } from '@/shared/const/theme';
 import LoginForm from './LoginForm';
+// eslint-disable-next-line nayteruz-test-production-plugin/layer-imports
+import '@/app/styles/index.scss';
 
 export default {
     title: 'features/LoginForm',

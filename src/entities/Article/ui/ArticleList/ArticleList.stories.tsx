@@ -1,7 +1,5 @@
-/* @ts-ignore */
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-
-import { StoryDecorator } from '@/shared/config/storybook/StoryDecorator/StoryDecorator';
+import { StoryDecorator } from '@/shared/config/storybook';
 import { ArticleView } from '../../model/consts/articleConsts';
 import { ArticleList } from './ArticleList';
 import { Article } from '../../model/types/article';

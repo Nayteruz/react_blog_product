@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ArticleDetailsPageHeader } from './ArticleDetailsPageHeader';
-import { StoryDecorator } from '@/shared/config/storybook/StoryDecorator/StoryDecorator';
 import { Article, ArticleType } from '@/entities/Article';
+import { StoryDecorator } from '@/shared/config/storybook';
 
 const article: Article = {
     id: '1',
@@ -21,13 +21,13 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    decorators: [StoryDecorator({})],
 } as ComponentMeta<typeof ArticleDetailsPageHeader>;
 
 const Template: ComponentStory<typeof ArticleDetailsPageHeader> = (args) => <ArticleDetailsPageHeader {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {};
+Normal.decorators = [StoryDecorator({})];
 
 export const ArticleOwner = Template.bind({});
 ArticleOwner.args = {};

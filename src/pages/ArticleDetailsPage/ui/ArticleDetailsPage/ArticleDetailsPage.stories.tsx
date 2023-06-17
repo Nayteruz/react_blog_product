@@ -1,7 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-
+import { StoryDecorator } from '@/shared/config/storybook';
 import { Article, ArticleType, ArticleBlockType } from '@/entities/Article';
-import { StoryDecorator } from '@/shared/config/storybook/StoryDecorator/StoryDecorator';
 import ArticleDetailsPage from './ArticleDetailsPage';
 
 // eslint-disable

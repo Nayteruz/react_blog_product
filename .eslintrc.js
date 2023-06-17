@@ -59,6 +59,13 @@ module.exports = {
         'react/no-unstable-nested-components': 'off',
         'react/react-in-jsx-scope': 'off',
         'nayteruz-test-production-plugin/path-checker': ['error', { alias: '@' }],
+        'nayteruz-test-production-plugin/layer-imports': [
+            'error',
+            {
+                alias: '@',
+                ignoreImportPatterns: ['**/StoryProvider', '**/testing'],
+            },
+        ],
         'nayteruz-test-production-plugin/public-api-imports': [
             'error',
             {

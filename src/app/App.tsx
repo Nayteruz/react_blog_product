@@ -6,7 +6,7 @@ import { getUserMounted, userActions } from '@/entities/User';
 import { Layout } from '@/shared/ui/Layout';
 import { Sidebar } from '@/widgets/Sidebar';
 import { Navbar } from '@/widgets/Navbar';
-import { AppRouter } from '@/app/providers/router';
+import { AppRouter } from './providers/router';
 
 function App() {
     const dispatch = useAppDispatch();
