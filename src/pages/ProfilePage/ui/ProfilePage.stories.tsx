@@ -1,9 +1,11 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { StoryDecorator, ThemeDecorator } from '@/shared/config/storybook';
+
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
-import { Theme } from '@/shared/const/theme';
 import avatar from '@/shared/assets/test/avatar-example.png';
+import { StoryDecorator, ThemeDecorator } from '@/shared/config/storybook';
+import { Theme } from '@/shared/const/theme';
+
 import ProfilePage from './ProfilePage';
 
 export default {

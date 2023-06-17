@@ -1,7 +1,9 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ArticleInfiniteList } from './ArticleInfiniteList';
-import { StoryDecorator } from '@/shared/config/storybook';
+
 import { Article, ArticleView } from '@/entities/Article';
+import { StoryDecorator } from '@/shared/config/storybook';
+
+import { ArticleInfiniteList } from './ArticleInfiniteList';
 
 // eslint-disabled
 const article = {

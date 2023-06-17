@@ -1,6 +1,8 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+
 import { StoryDecorator, ThemeDecorator } from '@/shared/config/storybook';
 import { Theme } from '@/shared/const/theme';
+
 import LoginForm from './LoginForm';
 // eslint-disable-next-line nayteruz-test-production-plugin/layer-imports
 import '@/app/styles/index.scss';

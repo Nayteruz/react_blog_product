@@ -1,5 +1,5 @@
-import ruIcon from '@/shared/assets/icons/ru.png';
 import enIcon from '@/shared/assets/icons/en.png';
+import ruIcon from '@/shared/assets/icons/ru.png';
 
 export interface langItem {
     langShort: string;

@@ -1,6 +1,8 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import withMock from 'storybook-addon-mock';
+
 import { StoryDecorator } from '@/shared/config/storybook';
+
 import { NotificationButton } from './NotificationButton';
 
 export default {

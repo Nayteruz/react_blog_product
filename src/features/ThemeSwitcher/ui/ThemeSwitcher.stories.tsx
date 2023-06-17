@@ -1,7 +1,9 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+
 import { ThemeDecorator } from '@/shared/config/storybook';
-import { ThemeSwitcher } from './ThemeSwitcher';
 import { Theme } from '@/shared/const/theme';
+
+import { ThemeSwitcher } from './ThemeSwitcher';
 // eslint-disable-next-line nayteruz-test-production-plugin/layer-imports
 import '@/app/styles/index.scss';
 

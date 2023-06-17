@@ -1,8 +1,7 @@
-import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { classNames as cn } from '@/shared/lib/classNames/classNames';
-import { Page } from '@/widgets/Page';
-import { VStack } from '@/shared/ui/Stack';
+import { useParams } from 'react-router-dom';
+
+import { getUserAuthData } from '@/entities/User';
 import {
     EditableProfileCard,
     getProfileError,
@@ -10,7 +9,9 @@ import {
     getProfileIsLoading,
 } from '@/features/editableProfileCard';
 import { ProfileRating } from '@/features/profileRating';
-import { getUserAuthData } from '@/entities/User';
+import { classNames as cn } from '@/shared/lib/classNames/classNames';
+import { VStack } from '@/shared/ui/Stack';
+import { Page } from '@/widgets/Page';
 
 interface ProfilePageProps {
     className?: string;

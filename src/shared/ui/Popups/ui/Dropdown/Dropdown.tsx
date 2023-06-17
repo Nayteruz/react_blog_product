@@ -1,9 +1,12 @@
 import { Fragment, ReactNode } from 'react';
+
 import { Menu } from '@headlessui/react';
+
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
 import { DropdownDirection } from '@/shared/types/ui';
-import { AppLink } from '../../../AppLink/AppLink';
+
 import cls from './Dropdown.module.scss';
+import { AppLink } from '../../../AppLink/AppLink';
 import popupCls from '../../styles/popup.module.scss';
 
 export interface DropdownItem {

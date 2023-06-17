@@ -1,7 +1,9 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ArticleDetailsPageHeader } from './ArticleDetailsPageHeader';
+
 import { Article, ArticleType } from '@/entities/Article';
 import { StoryDecorator } from '@/shared/config/storybook';
+
+import { ArticleDetailsPageHeader } from './ArticleDetailsPageHeader';
 
 const article: Article = {
     id: '1',

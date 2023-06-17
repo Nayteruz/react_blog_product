@@ -1,7 +1,9 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+
 import { StoryDecorator, ThemeDecorator } from '@/shared/config/storybook';
-import { Page } from './Page';
 import { Theme } from '@/shared/const/theme';
+
+import { Page } from './Page';
 
 export default {
     title: 'widget/Page',

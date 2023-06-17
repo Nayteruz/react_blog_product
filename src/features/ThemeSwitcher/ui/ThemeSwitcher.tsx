@@ -1,8 +1,10 @@
 import { memo } from 'react';
+
+import SwitcherIcon from '@/shared/assets/icons/icon_theme.svg';
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
-import SwitcherIcon from '@/shared/assets/icons/icon_theme.svg';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
+
 import cls from './ThemeSwitcher.module.scss';
 
 interface ThemeSwitcherProps {

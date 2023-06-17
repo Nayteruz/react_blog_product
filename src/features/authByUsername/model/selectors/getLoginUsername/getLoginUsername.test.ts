@@ -1,4 +1,5 @@
 import { StateSchema } from '@/app/providers/StoryProvider';
+
 import { getLoginUsername } from './getLoginUsername';
 
 describe('getLoginUsername', () => {

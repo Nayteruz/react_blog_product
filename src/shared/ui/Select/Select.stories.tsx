@@ -1,4 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+
 import { Select } from './Select';
 // eslint-disable-next-line nayteruz-test-production-plugin/layer-imports
 import '@/app/styles/index.scss';
