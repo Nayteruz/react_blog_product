@@ -3,10 +3,8 @@ import { useSelector } from 'react-redux';
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
 import { Page } from '@/widgets/Page';
 import { VStack } from '@/shared/ui/Stack/VStack/VStack';
-import { EditableProfileCard } from '@/features/editableProfileCard';
-import ProfileRating from '@/features/profileRating/ui/ProfileRating/ProfileRating';
-import { getProfileError } from '@/features/editableProfileCard/model/selectors/getProfileError/getProfileError';
-import { getProfileData } from '@/features/editableProfileCard/model/selectors/getProfileData/getProfileData';
+import { EditableProfileCard, getProfileError, getProfileData } from '@/features/editableProfileCard';
+import { ProfileRating } from '@/features/profileRating';
 import { getUserAuthData } from '@/entities/User';
 
 interface ProfilePageProps {

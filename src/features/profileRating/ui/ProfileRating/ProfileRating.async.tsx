@@ -6,7 +6,7 @@ const ProfileRatingLazy = lazy(
     () => import('./ProfileRating'),
 );
 
-export const ArticleRatingAsync = (props: ProfileRatingProps) => {
+export const ProfileRatingAsync = (props: ProfileRatingProps) => {
     /* eslint-disable react/jsx-props-no-spreading */
     return (
         <Suspense fallback={<Skeleton width="100%" height={120} />}>

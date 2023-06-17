@@ -19,7 +19,6 @@ module.exports = {
     },
     plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks', 'nayteruz-test-production-plugin'],
     rules: {
-        'nayteruz-test-production-plugin/path-checker': ['error', { alias: '@' }],
         indent: [2, 4],
         'react/jsx-indent-props': [2, 4],
         'react/jsx-indent': [2, 4],
@@ -59,6 +58,14 @@ module.exports = {
         'arrow-body-style': 'off',
         'react/no-unstable-nested-components': 'off',
         'react/react-in-jsx-scope': 'off',
+        'nayteruz-test-production-plugin/path-checker': ['error', { alias: '@' }],
+        'nayteruz-test-production-plugin/public-api-imports': [
+            'error',
+            {
+                alias: '@',
+                testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoryDecorator.tsx'],
+            },
+        ],
     },
     globals: {
         __IS_DEV__: true,

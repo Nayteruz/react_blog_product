@@ -1,15 +1,13 @@
 import { Story } from '@storybook/react';
 // TODO
-// eslint-disable
 import { StateSchema, StoryProvider } from '@/app/providers/StoryProvider';
-import { loginReducer } from '@/features/AuthByUsername/model/slice/loginSlice';
-import { profileReducer } from '@/features/editableProfileCard/model/slice/ProfileSlice';
 import { ReducerList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { articleDetailsReducer } from '@/entities/Article/model/slice/articleDetailsSlice';
-import { addCommentFormReducer } from '@/features/addCommentForm/model/slices/addCommentFormSlice';
-import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/model/slices';
-import { articlesPageReducer } from '@/pages/ArticlesPage/model/slices/articlePageSlice';
-// eslint-enable
+import { loginReducer } from '@/features/authByUsername/testing';
+import { profileReducer } from '@/features/editableProfileCard/testing';
+import { articleDetailsReducer } from '@/entities/Article/testing';
+import { addCommentFormReducer } from '@/features/addCommentForm/testing';
+import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/testing';
+import { articlesPageReducer } from '@/pages/ArticlesPage/testing';
 
 const defaultAsyncReducers: ReducerList = {
     loginForm: loginReducer,
