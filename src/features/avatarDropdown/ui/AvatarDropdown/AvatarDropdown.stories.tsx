@@ -2,7 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { AvatarDropdown } from './AvatarDropdown';
 import { StoryDecorator } from '@/shared/config/storybook';
 import { UserRole } from '@/entities/User';
-import '@/shared/ui/Popups/styles/popup.module.scss';
+import '@/shared/ui/Popups';
 // eslint-disable-next-line nayteruz-test-production-plugin/layer-imports
 import '@/app/styles/index.scss';
 
