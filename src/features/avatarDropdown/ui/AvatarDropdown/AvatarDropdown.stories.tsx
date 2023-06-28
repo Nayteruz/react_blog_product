@@ -1,6 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { UserRole } from '@/entities/User';
+import defaultAvatar from '@/shared/assets/test/avatar-example.png';
 import { StoryDecorator } from '@/shared/config/storybook';
 
 import { AvatarDropdown } from './AvatarDropdown';
@@ -16,7 +17,7 @@ export default {
     },
     decorators: [StoryDecorator({
         user: {
-            authData: { id: '1', username: 'admin', avatar: 'https://img.freepik.com/free-photo/side-view-male-hacker-with-gloves-laptop_23-2148578161.jpg' },
+            authData: { id: '1', username: 'admin', avatar: defaultAvatar },
         },
     })],
 } as ComponentMeta<typeof AvatarDropdown>;
@@ -39,7 +40,7 @@ IsAdminOrManager.decorators = [
     StoryDecorator({
         user: {
             authData: {
-                avatar: 'https://img.freepik.com/free-photo/side-view-male-hacker-with-gloves-laptop_23-2148578161.jpg',
+                avatar: defaultAvatar,
                 id: '1',
                 roles: [UserRole.ADMIN],
                 username: 'admin',

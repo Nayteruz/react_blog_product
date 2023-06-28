@@ -185,5 +185,5 @@ Clear.args = {
 - [langSwitcher](/src/features/langSwitcher)
 - [notificationButton](/src/features/notificationButton)
 - [profileRating](/src/features/profileRating)
-- [themeSwitcher](/src/features/ThemeSwitcher)
+- [themeSwitcher](/src/features/themeSwitcher)
 - [UI](/src/features/UI)

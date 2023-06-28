@@ -3,7 +3,7 @@ import { memo, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { LangSwitcher } from '@/features/langSwitcher';
-import { ThemeSwitcher } from '@/features/ThemeSwitcher';
+import { ThemeSwitcher } from '@/features/themeSwitcher';
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button';
 import { VStack } from '@/shared/ui/Stack';

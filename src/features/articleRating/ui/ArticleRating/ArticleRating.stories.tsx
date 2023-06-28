@@ -19,17 +19,17 @@ const Template: ComponentStory<typeof ArticleRating> = (args) => <ArticleRating 
 
 export const Normal = Template.bind({});
 Normal.args = {
-    articleId: '1',
+    articleId: '2',
 };
 Normal.decorators = [StoryDecorator({
     user: {
-        authData: { id: '1' },
+        authData: { id: '2' },
     },
 })];
 Normal.parameters = {
     mockData: [
         {
-            url: `${__API__}/article-ratings?userId=1&articleId=1`,
+            url: `${__API__}/article-ratings?userId=2&articleId=2`,
             method: 'GET',
             status: 200,
             response: [
@@ -43,17 +43,17 @@ Normal.parameters = {
 
 export const WithoutRate = Template.bind({});
 WithoutRate.args = {
-    articleId: '1',
+    articleId: '2',
 };
 WithoutRate.decorators = [StoryDecorator({
     user: {
-        authData: { id: '1' },
+        authData: { id: '2' },
     },
 })];
 WithoutRate.parameters = {
     mockData: [
         {
-            url: `${__API__}/article-ratings?userId=1&articleId=1`,
+            url: `${__API__}/article-ratings?userId=2&articleId=2`,
             method: 'GET',
             status: 200,
             response: [],
@@ -63,17 +63,17 @@ WithoutRate.parameters = {
 
 export const NormalDark = Template.bind({});
 NormalDark.args = {
-    articleId: '1',
+    articleId: '2',
 };
 NormalDark.decorators = [StoryDecorator({
     user: {
-        authData: { id: '1' },
+        authData: { id: '2' },
     },
 }), ThemeDecorator(Theme.DARK)];
 NormalDark.parameters = {
     mockData: [
         {
-            url: `${__API__}/article-ratings?userId=1&articleId=1`,
+            url: `${__API__}/article-ratings?userId=2&articleId=2`,
             method: 'GET',
             status: 200,
             response: [

@@ -2,6 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import withMock from 'storybook-addon-mock';
 
 import { Article } from '@/entities/Article';
+import defaultAvatar from '@/shared/assets/test/avatar-example.png';
 import { StoryDecorator } from '@/shared/config/storybook';
 
 import { ArticleRecommendationsList } from './ArticleRecommendationsList';
@@ -19,7 +20,7 @@ const Template: ComponentStory<typeof ArticleRecommendationsList> = (args) => <A
 
 const article: Article = {
     id: '1',
-    img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
+    img: defaultAvatar,
     createdAt: '',
     views: 1212,
     user: { id: '1', username: '123' },

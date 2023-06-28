@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import {
     getUserAuthData, isUserAdmin, isUserManager, userActions,
 } from '@/entities/User';
+import defaultAvatar from '@/shared/assets/test/avatar-example.png';
 import { RoutePath } from '@/shared/const/router';
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -53,7 +54,7 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
                 },
             ]}
             direction="bottom right"
-            trigger={<Avatar resize="cover" size={30} src={authData.avatar ?? 'test'} />}
+            trigger={<Avatar resize="cover" size={30} src={authData.avatar ?? defaultAvatar} />}
         />
     );
 });

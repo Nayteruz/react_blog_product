@@ -8,7 +8,7 @@ import { ThemeSwitcher } from './ThemeSwitcher';
 import '@/app/styles/index.scss';
 
 export default {
-    title: 'widget/ThemeSwitcher',
+    title: 'features/ThemeSwitcher',
     component: ThemeSwitcher,
     argTypes: {
         backgroundColor: { control: 'color' },

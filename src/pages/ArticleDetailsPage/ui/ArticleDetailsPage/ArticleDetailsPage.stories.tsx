@@ -1,6 +1,8 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import withMock from 'storybook-addon-mock';
 
 import { Article, ArticleType, ArticleBlockType } from '@/entities/Article';
+import defaultAvatar from '@/shared/assets/test/avatar-example.png';
 import { StoryDecorator } from '@/shared/config/storybook';
 
 import ArticleDetailsPage from './ArticleDetailsPage';
@@ -10,7 +12,7 @@ const article: Article = {
     id: '1',
     title: 'Javascript news',
     subtitle: 'Что нового в JS за 2022 год?',
-    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_tYaggzZtrVKys9HdormuKkMqVJq-MEAmAurUaMaeC-rVeFQ6b5Q2m6S1liToWzmADjY&usqp=CAU',
+    img: defaultAvatar,
     views: 1000,
     createdAt: '26.02.2022',
     user: { id: '1', username: 'User test' },
@@ -34,7 +36,7 @@ const article: Article = {
         {
             id: '2',
             type: ArticleBlockType.IMAGE,
-            src: 'https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png',
+            src: defaultAvatar,
             title: 'Рисунок 1 - скриншот сайта',
         },
     ],
@@ -47,6 +49,7 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators: [withMock],
 } as ComponentMeta<typeof ArticleDetailsPage>;
 
 const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => <ArticleDetailsPage {...args} />;
@@ -57,4 +60,31 @@ Normal.decorators = [StoryDecorator({
     articleDetails: {
         data: article,
     },
+    user: {
+        authData: { id: '2' },
+    },
 })];
+Normal.parameters = {
+    mockData: [
+        {
+            url: `${__API__}/article-ratings?userId=2&articleId=2`,
+            method: 'GET',
+            status: 200,
+            response: [
+                {
+                    rate: 4,
+                },
+            ],
+        },
+        {
+            url: `${__API__}/articles?_limit=3`,
+            method: 'GET',
+            status: 200,
+            response: [
+                { ...article, id: '1' },
+                { ...article, id: '2' },
+                { ...article, id: '3' },
+            ],
+        },
+    ],
+};
