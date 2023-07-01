@@ -5,10 +5,11 @@ import { useSelector } from 'react-redux';
 
 import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg';
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
+import noImage from '@/shared/assets/icons/no_image.svg';
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducerList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Avatar } from '@/shared/ui/Avatar';
+import { AppImage } from '@/shared/ui/AppImage';
 import { Icon } from '@/shared/ui/Icon';
 import { Skeleton } from '@/shared/ui/Skeleton';
 import { HStack, VStack } from '@/shared/ui/Stack';
@@ -103,10 +104,11 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
         content = (
             <>
                 <HStack justify="center" className={cls.avatarWrapper}>
-                    <Avatar
-                        size={200}
+                    <AppImage
+                        fallback={<Skeleton className={cls.avatar} width={200} height={200} border="50%" />}
+                        errorFallback={<div style={{ border: '1px solid #ccc' }}><Icon Svg={noImage} width={170} height={170} /></div>}
+                        width={200}
                         src={article?.img || ''}
-                        resize="cover"
                         className={cls.avatar}
                     />
                 </HStack>
