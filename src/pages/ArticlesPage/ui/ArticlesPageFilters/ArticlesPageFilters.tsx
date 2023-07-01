@@ -5,11 +5,12 @@ import { useSelector } from 'react-redux';
 
 import {
     ArticleSortFiled,
-    ArticleSortSelector, ArticleType,
-    ArticleTypeTabs,
+    ArticleType,
     ArticleView,
-    ArticleViewSelector,
 } from '@/entities/Article';
+import { ArticleSortSelector } from '@/features/ArticleSortSelector';
+import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
+import { ArticleViewSelector } from '@/features/ArticleViewSelector';
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
