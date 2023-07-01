@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
 import { ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX } from '@/shared/const/localstorage';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteArticleDetails, getRouteProfile } from '@/shared/const/router';
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
 import { AppLink } from '@/shared/ui/AppLink';
 import { Avatar } from '@/shared/ui/Avatar';
@@ -54,7 +54,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
             <div className={cn(cls.ArticleListItem, {}, [className, cls[view]])}>
                 <Card className={cls.card}>
                     <div className={cls.header}>
-                        <AppLink to={`${RoutePath.profile}${article.user.id}`} className={cls.userLink}>
+                        <AppLink to={getRouteProfile(article.user.id)} className={cls.userLink}>
                             {article.user?.avatar && <Avatar size={30} resize="cover" src={article.user.avatar} />}
                             <Text text={article.user.username} className={cls.username} />
                         </AppLink>
@@ -67,7 +67,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                         <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />
                     )}
                     <div className={cls.footer}>
-                        <AppLink target={target} to={RoutePath.article_details + article.id}>
+                        <AppLink target={target} to={getRouteArticleDetails(article.id)}>
                             <Button theme={ButtonTheme.OUTLINE} onClick={handleButtonClick}>
                                 {t('Читать далее')}
                             </Button>
@@ -82,7 +82,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     return (
         <AppLink
             target={target}
-            to={RoutePath.article_details + article.id}
+            to={getRouteArticleDetails(article.id)}
             className={cn('', {}, [className, cls[view]])}
             onClick={handleButtonClick}
         >
