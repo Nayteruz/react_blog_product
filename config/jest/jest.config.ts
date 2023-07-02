@@ -37,10 +37,11 @@ export default {
     ],
     setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
     moduleNameMapper: {
+        '^@/(.*)$': '<rootDir>/src/$1',
         '\\.s?css$': 'identity-obj-proxy',
         '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
         '\\.(jpg|jpeg|png)$': '<rootDir>config/jest/__mocks__/fileMock.js',
-        '@/(.*)': '<rootDir>src/$1',
+        // '@/(.*)': '<rootDir>src/$1',
     },
     transformIgnorePatterns: ['<rootDir>/node_modules/(?!(axios)/)'],
     reporters: [

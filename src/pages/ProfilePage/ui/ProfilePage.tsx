@@ -27,7 +27,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     const hideRating = error || isOwner || isLoading;
 
     return (
-        <Page className={cn('', {}, [className])}>
+        <Page data-testid="ProfilePage" className={cn('', {}, [className])}>
             <VStack gap="16" max>
                 <EditableProfileCard id={id} />
                 {!hideRating && <ProfileRating profileId={id} />}
