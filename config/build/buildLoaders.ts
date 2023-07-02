@@ -22,8 +22,8 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     // const typescriptLoader = buildTypescriptLoaders();
 
     return [
-        fileLoader
-        svgLoader
+        fileLoader,
+        svgLoader,
         tsxCodeBabelLoader,
         codeBabelLoader,
         // typescriptLoader,
