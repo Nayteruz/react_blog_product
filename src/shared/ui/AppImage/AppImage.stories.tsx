@@ -13,4 +13,9 @@ export default {
 const Template: ComponentStory<typeof AppImage> = (args) => <AppImage {...args} />;
 
 export const Normal = Template.bind({});
-Normal.args = {};
+Normal.args = {
+    src: 'https://pngicon.ru/file/uploads/vinni-pukh-v-png.png',
+    alt: '',
+    width: 200,
+    height: 200,
+};
