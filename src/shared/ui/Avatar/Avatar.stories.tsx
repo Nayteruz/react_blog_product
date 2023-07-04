@@ -1,4 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+
+// eslint-disable-next-line nayteruz-test-production-plugin/layer-imports
 import '@/app/styles/index.scss';
 import { Avatar } from './Avatar';
 import AvatarImg from '../../assets/test/avatar-example.png';

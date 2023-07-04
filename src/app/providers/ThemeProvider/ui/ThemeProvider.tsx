@@ -1,8 +1,11 @@
 import {
     ReactNode, useEffect, useMemo, useState,
 } from 'react';
-import { Theme } from '../consts/consts';
-import { LOCAL_STORAGE_THEME_KEY, ThemeContext } from '../lib/ThemeContext';
+
+import { LOCAL_STORAGE_THEME_KEY } from '@/shared/const/localstorage';
+import { Theme } from '@/shared/const/theme';
+
+import { ThemeContext } from '../../../../shared/lib/context/ThemeContext';
 
 const defaultTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme || Theme.LIGHT;
 
@@ -24,9 +27,7 @@ const ThemeProvider = (props: ThemeProviderProps) => {
         document.body.className = defaultTheme;
     };
 
-    useEffect(() => {
-        onRender();
-    }, []);
+    useEffect(() => onRender(), []);
 
     return (
         <ThemeContext.Provider value={defaultProps}>

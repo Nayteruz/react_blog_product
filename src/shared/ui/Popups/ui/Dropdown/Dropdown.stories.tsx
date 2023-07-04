@@ -1,7 +1,8 @@
 /* eslint-disable no-alert */
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Button } from '../../../Button/Button';
+
 import Dropdown from './Dropdown';
+import { Button } from '../../../Button/Button';
 
 export default {
     title: 'shared/Dropdown',
@@ -19,19 +20,19 @@ Normal.args = {
     items: [
         {
             content: 'Test item 1',
-            onClick: () => { alert('click on item'); },
+            onClick: () => alert('click on item'),
         },
         {
             content: 'Test item 2',
-            onClick: () => { alert('click on item'); },
+            onClick: () => alert('click on item'),
         },
         {
             content: 'Test item 3',
-            onClick: () => { alert('click on item'); },
+            onClick: () => alert('click on item'),
         },
         {
             content: 'Test item 4',
-            onClick: () => { alert('click on item'); },
+            onClick: () => alert('click on item'),
         },
     ],
 };

@@ -14,3 +14,8 @@ const Template: ComponentStory<typeof StarRating> = (args) => <StarRating {...ar
 
 export const Normal = Template.bind({});
 Normal.args = {};
+
+export const Selected = Template.bind({});
+Selected.args = {
+    selectedStars: 4,
+};

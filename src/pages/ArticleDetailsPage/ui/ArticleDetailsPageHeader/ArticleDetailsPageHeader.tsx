@@ -1,12 +1,15 @@
 import { memo, useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+
 import { useTranslation } from 'react-i18next';
-import { classNames as cn } from '@/shared/lib/classNames/classNames';
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+
 import { getArticleDetailsData } from '@/entities/Article';
+import { getRouteArticleDetails, getRouteArticles } from '@/shared/const/router';
+import { classNames as cn } from '@/shared/lib/classNames/classNames';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { HStack } from '@/shared/ui/Stack';
+
 import { getCanEditArticle } from '../../model/selectors/article';
 
 interface ArticleDetailsPageHeaderProps {
@@ -21,12 +24,14 @@ export const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderPro
     const article = useSelector(getArticleDetailsData);
 
     const onBackToList = useCallback(() => {
-        navigate(RoutePath.articles);
+        navigate(getRouteArticles());
     }, [navigate]);
 
     const onEditArticle = useCallback(() => {
-        navigate(`${RoutePath.article_details}${article?.id}/edit`);
-    }, [article?.id, navigate]);
+        if (article) {
+            navigate(getRouteArticleDetails(article.id));
+        }
+    }, [article, navigate]);
 
     return (
         <HStack justify="space-between" className={cn('', {}, [className])}>

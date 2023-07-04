@@ -1,16 +1,19 @@
 import { memo, useCallback, useState } from 'react';
+
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { classNames as cn } from '@/shared/lib/classNames/classNames';
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
-import { LoginModal } from '@/features/AuthByUsername';
+
 import { getUserAuthData } from '@/entities/User';
-import { Text, TextTheme } from '@/shared/ui/Text/Text';
-import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink/AppLink';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
-import { HStack } from '@/shared/ui/Stack';
-import { NotificationButton } from '@/features/notificationButton';
+import { LoginModal } from '@/features/authByUsername';
 import { AvatarDropdown } from '@/features/avatarDropdown';
+import { NotificationButton } from '@/features/notificationButton';
+import { getRouteArticleCreate } from '@/shared/const/router';
+import { classNames as cn } from '@/shared/lib/classNames/classNames';
+import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
+import { HStack } from '@/shared/ui/Stack';
+import { Text, TextTheme } from '@/shared/ui/Text';
+
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -22,13 +25,9 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     const [isAuthModal, setIsAuthModal] = useState(false);
     const authData = useSelector(getUserAuthData);
 
-    const onCloseModal = useCallback(() => {
-        setIsAuthModal(false);
-    }, []);
+    const onCloseModal = useCallback(() => setIsAuthModal(false), []);
 
-    const onShowModal = useCallback(() => {
-        setIsAuthModal(true);
-    }, []);
+    const onShowModal = useCallback(() => setIsAuthModal(true), []);
 
     if (authData) {
         return (
@@ -39,7 +38,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                     theme={TextTheme.INVERTED}
                 />
                 <AppLink
-                    to={RoutePath.article_create}
+                    to={getRouteArticleCreate()}
                     theme={AppLinkTheme.SECONDARY}
                     className={cls.createBtn}
                 >

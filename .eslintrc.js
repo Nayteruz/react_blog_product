@@ -17,9 +17,8 @@ module.exports = {
         ecmaVersion: 'latest',
         sourceType: 'module',
     },
-    plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks', 'nayteruz-test-production-plugin'],
+    plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks', 'nayteruz-test-production-plugin', 'unused-imports'],
     rules: {
-        'nayteruz-test-production-plugin/path-checker': 'error',
         indent: [2, 4],
         'react/jsx-indent-props': [2, 4],
         'react/jsx-indent': [2, 4],
@@ -36,6 +35,7 @@ module.exports = {
         'import/no-extraneous-dependencies': 'off',
         'no-underscore-dangle': 'off',
         'no-unused-vars': 'off',
+        'unused-imports/no-unused-imports': 'error',
         '@typescript-eslint/no-unused-vars': ['warn'],
         'i18next/no-literal-string': ['error', {
             markupOnly: true,
@@ -59,6 +59,45 @@ module.exports = {
         'arrow-body-style': 'off',
         'react/no-unstable-nested-components': 'off',
         'react/react-in-jsx-scope': 'off',
+        'nayteruz-test-production-plugin/path-checker': ['error', { alias: '@' }],
+        'nayteruz-test-production-plugin/layer-imports': [
+            'error',
+            {
+                alias: '@',
+                ignoreImportPatterns: ['**/StoryProvider', '**/testing'],
+            },
+        ],
+        'nayteruz-test-production-plugin/public-api-imports': [
+            'error',
+            {
+                alias: '@',
+                testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoryDecorator.tsx'],
+            },
+        ],
+        'import/order': [
+            'error',
+            {
+                groups: ['builtin', 'external', 'internal'],
+                pathGroups: [
+                    {
+                        pattern: 'react',
+                        group: 'external',
+                        position: 'before',
+                    },
+                    {
+                        pattern: '@/**',
+                        group: 'external',
+                        position: 'after',
+                    },
+                ],
+                pathGroupsExcludedImportTypes: ['react'],
+                'newlines-between': 'always',
+                alphabetize: {
+                    order: 'asc',
+                    caseInsensitive: true,
+                },
+            },
+        ],
     },
     globals: {
         __IS_DEV__: true,

@@ -20,6 +20,12 @@
         align-items: center;
     }
 
+    .userLink {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+    }
+
     .username {
         margin-left: 8px;
     }

@@ -1,9 +1,11 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { Theme } from '@/app/providers/ThemeProvider';
+import { Theme } from '@/shared/const/theme';
+
+// eslint-disable-next-line nayteruz-test-production-plugin/layer-imports
 import '@/app/styles/index.scss';
-import { ThemeDecorator } from '../../config/storybook/ThemeDecorator/ThemeDecorator';
 import { Input } from './Input';
+import { ThemeDecorator } from '../../config/storybook/ThemeDecorator/ThemeDecorator';
 
 export default {
     title: 'shared/Input',
@@ -27,3 +29,10 @@ PrimaryDark.args = {
     value: '1234',
 };
 PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const NoLabel = Template.bind({});
+NoLabel.args = {
+    placeholder: 'Type text',
+    value: '1234',
+    placeholderTopName: false,
+};

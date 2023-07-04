@@ -1,8 +1,10 @@
-import webpack, { DefinePlugin, RuleSetRule } from 'webpack';
 import path from 'path';
-import { BuildPaths } from '../build/types/config';
+
+import webpack, { DefinePlugin, RuleSetRule } from 'webpack';
+
 import { buildCssLoaders } from '../build/loaders/buildCssLoaders';
 import { buildSvgLoaders } from '../build/loaders/buildSvgLoaders';
+import { BuildPaths } from '../build/types/config';
 
 export default ({ config }: { config: webpack.Configuration }) => {
     const paths: BuildPaths = {
@@ -15,6 +17,10 @@ export default ({ config }: { config: webpack.Configuration }) => {
     };
     config!.resolve!.modules!.push(paths.src);
     config!.resolve!.extensions!.push('.ts', '.tsx');
+    config!.resolve!.alias = {
+        ...config!.resolve!.alias,
+        '@': paths.src,
+    };
 
     // eslint-disable-next-line no-param-reassign
     // @ts-ignore

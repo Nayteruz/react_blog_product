@@ -1,7 +1,10 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import withMock from 'storybook-addon-mock';
-import { StoryDecorator } from '@/shared/config/storybook/StoryDecorator/StoryDecorator';
+
 import { Article } from '@/entities/Article';
+import defaultAvatar from '@/shared/assets/test/avatar-example.png';
+import { StoryDecorator } from '@/shared/config/storybook';
+
 import { ArticleRecommendationsList } from './ArticleRecommendationsList';
 
 export default {
@@ -17,7 +20,7 @@ const Template: ComponentStory<typeof ArticleRecommendationsList> = (args) => <A
 
 const article: Article = {
     id: '1',
-    img: '',
+    img: defaultAvatar,
     createdAt: '',
     views: 1212,
     user: { id: '1', username: '123' },

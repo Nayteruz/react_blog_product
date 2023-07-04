@@ -1,6 +1,8 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { HTMLAttributes, memo, ReactNode } from 'react';
+
 import { classNames as cn } from '@/shared/lib/classNames/classNames';
+
 import cls from './Card.module.scss';
 
 export enum CardTheme {

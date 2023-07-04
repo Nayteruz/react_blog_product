@@ -1,6 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Text } from '../Text/Text';
+
 import { Card } from './Card';
+import { Text } from '../Text/Text';
 
 export default {
     title: 'shared/Card',
@@ -10,7 +11,10 @@ export default {
     },
 } as ComponentMeta<typeof Card>;
 
-const Template: ComponentStory<typeof Card> = (args) => <Card {...args} />;
+const Template: ComponentStory<typeof Card> = (args) => {
+    const { children } = args;
+    return <Card {...args}>{children}</Card>;
+};
 
 export const Normal = Template.bind({});
 Normal.args = {

@@ -1,5 +1,8 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+
+import { StoryDecorator } from '@/shared/config/storybook';
+
 import AddCommentForm from './AddCommentForm';
 
 export default {
@@ -8,6 +11,7 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators: [StoryDecorator({})],
 } as ComponentMeta<typeof AddCommentForm>;
 
 const Template: ComponentStory<typeof AddCommentForm> = (args) => <AddCommentForm {...args} />;

@@ -1,6 +1,7 @@
 import { StateSchema } from '@/app/providers/StoryProvider';
-import { ValidateProfileError } from '../../consts/consts';
+
 import { getProfileValidateErrors } from './getProfileValidateError';
+import { ValidateProfileError } from '../../consts/consts';
 
 describe('getProfileReadonly.test', () => {
     test('should return error', () => {
